@@ -1,3 +1,5 @@
+import theme from "@/styles/theme";
+import { ColorModeScript } from "@chakra-ui/color-mode";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -17,6 +19,7 @@ class MyDocument extends Document {
           ></link>
         </Head>
         <body>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
