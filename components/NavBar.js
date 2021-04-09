@@ -2,7 +2,6 @@ import { Button, ButtonGroup } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Box, Divider, Flex, HStack, VStack } from "@chakra-ui/layout";
-import { chakra } from "@chakra-ui/system";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
