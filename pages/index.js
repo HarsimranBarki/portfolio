@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import HeroMobile from "@/components/HeroMobile";
 import { Box } from "@chakra-ui/layout";
 import Head from "next/head";
 import { useMediaQuery } from "react-responsive";
@@ -10,7 +11,7 @@ export default function Home() {
         <title>Harsimran Singh Barki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{isTabletOrMobile ? null : <Hero />}</main>
+      <main>{isTabletOrMobile ? <HeroMobile /> : <Hero />}</main>
     </Box>
   );
 }

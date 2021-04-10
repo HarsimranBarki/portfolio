@@ -15,13 +15,19 @@ function NavBar() {
   const MotionButton = motion(Button);
   const MotionVStack = motion(VStack);
 
+  const mobileNavBack = useColorModeValue("#FFFECB", "#272343");
+
   const openNav = () => {
     mobileNavOpen(!mobileNav);
   };
   return (
-    <Box padding={8} maxW="90vw" margin="auto">
+    <Box
+      padding={8}
+      maxW={{ base: "100vw", md: "90vw", lg: "90vw" }}
+      margin="auto"
+    >
       {isTabletOrMobile ? (
-        <Button onClick={() => openNav()} bg="transparent">
+        <Button onClick={() => openNav()} bg="transparent" zIndex={20}>
           {mobileNav ? <CloseIcon /> : <HamburgerIcon />}
         </Button>
       ) : (
@@ -123,71 +129,81 @@ function NavBar() {
         <Box>
           <AnimatePresence>
             {mobileNav ? (
-              <MotionVStack
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="space-between"
-                width="full"
-                spacing={10}
-                mt={10}
+              <Box
+                bg={mobileNavBack}
+                w="full"
+                h="full"
+                position="absolute"
+                top="0"
+                left="0"
+                zIndex={10}
               >
-                <MotionButton
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  variant="ghost"
-                  _hover={{
-                    bg,
-                  }}
+                <MotionVStack
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  width="full"
+                  spacing={10}
+                  mt={20}
                 >
-                  Home
-                </MotionButton>
-                <MotionButton
-                  variant="ghost"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  _hover={{
-                    bg,
-                  }}
-                >
-                  About
-                </MotionButton>
-                <MotionButton
-                  variant="ghost"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  _hover={{
-                    bg,
-                  }}
-                >
-                  Projects
-                </MotionButton>
-                <MotionButton
-                  variant="ghost"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  _hover={{
-                    bg,
-                  }}
-                >
-                  Contact
-                </MotionButton>
-                <MotionButton
-                  variant="ghost"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={toggleColorMode}
-                  _hover={{
-                    bg,
-                  }}
-                >
-                  {colorMode === "light" ? <SunIcon /> : <MoonIcon />}
-                </MotionButton>
-              </MotionVStack>
+                  <MotionButton
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    variant="ghost"
+                    _hover={{
+                      bg,
+                    }}
+                  >
+                    Home
+                  </MotionButton>
+                  <MotionButton
+                    variant="ghost"
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    _hover={{
+                      bg,
+                    }}
+                  >
+                    About
+                  </MotionButton>
+                  <MotionButton
+                    variant="ghost"
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    _hover={{
+                      bg,
+                    }}
+                  >
+                    Projects
+                  </MotionButton>
+                  <MotionButton
+                    variant="ghost"
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    _hover={{
+                      bg,
+                    }}
+                  >
+                    Contact
+                  </MotionButton>
+                  <MotionButton
+                    variant="ghost"
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={toggleColorMode}
+                    _hover={{
+                      bg,
+                    }}
+                  >
+                    {colorMode === "light" ? <SunIcon /> : <MoonIcon />}
+                  </MotionButton>
+                </MotionVStack>
+              </Box>
             ) : null}
           </AnimatePresence>
         </Box>
