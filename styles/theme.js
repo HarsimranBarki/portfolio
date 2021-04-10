@@ -14,6 +14,7 @@ const theme = {
     normal: 400,
     medium: 600,
     bold: 700,
+    boldest: 800,
   },
   icons: {
     ...chakraTheme.icons,

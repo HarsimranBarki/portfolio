@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import { Box } from "@chakra-ui/layout";
 import Head from "next/head";
 
@@ -8,7 +9,9 @@ export default function Home() {
         <title>Harsimran Singh Barki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <main>
+        <Hero />
+      </main>
     </Box>
   );
 }
