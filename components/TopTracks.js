@@ -9,9 +9,9 @@ export default function TopTracks() {
     return null;
   }
 
-  return (
-    <Link href={data.songUrl} target="_blank" ml={1}>
-      {data.title} ({data.album})
-    </Link>
-  );
+  if (data.length == 0) {
+    return <>Spotify - Not Playing</>;
+  }
+
+  return <> Spotify - {data.title}</>;
 }

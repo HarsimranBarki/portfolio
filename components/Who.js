@@ -58,26 +58,26 @@ const Who = () => {
   });
   const MotionListItem = motion(ListItem);
   const MotionHeading = motion(Heading);
+  const MotionBox = motion(Box);
   const image = useColorModeValue(WhoDark, WhoWhite);
 
   return (
-    <Box bg={bg} height="100vh">
+    <Box bg={bg}>
       <Grid
         placeItems="center"
-        gridTemplateColumns="30% 1fr"
-        height="100%"
-        width="container.xl"
+        gridTemplateColumns={{ base: "1fr", md: "1fr", lg: "40% 1fr" }}
+        height={{ base: "100%", md: "100vh", lg: "100vh" }}
+        padding={{ base: 5, md: 10, lg: 10 }}
+        maxWidth="container.xl"
+        flexDirection="column-reverse"
         margin="auto"
+        gridGap={10}
       >
-        <motion.div ref={ref} animate={{ opacity: inView ? 1 : 0 }}>
+        <MotionBox display={{ base: "none", md: "none", lg: "block" }}>
           <Image src={image} layout="intrinsic" height={500} width={300} />
-        </motion.div>
-        <Stack spacing={10} px={35}>
-          <MotionHeading
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: inView ? 0 : -100, opacity: inView ? 1 : 0 }}
-            fontSize="6xl"
-          >
+        </MotionBox>
+        <Stack spacing={10}>
+          <MotionHeading fontSize={{ base: "3xl", md: "6xl" }}>
             Harsimran. Who?
           </MotionHeading>
           <Text textColor={color} cursor="normal">
@@ -92,6 +92,7 @@ const Who = () => {
             justifyContent="space-between"
             cursor="default"
             textColor={colorTimeline}
+            flexWrap="wrap"
           >
             <Box>
               <Text fontStyle="italic">Things i know</Text>

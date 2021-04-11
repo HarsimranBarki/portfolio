@@ -234,6 +234,7 @@ function NavBar() {
           </AnimatePresence>
         </Box>
       </Flex>
+      <Box height={4}></Box>
     </>
   );
 }

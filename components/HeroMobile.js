@@ -32,7 +32,7 @@ const HeroMobile = () => {
     <Grid
       placeItems="center"
       padding={{ base: 5, md: 10, lg: 10 }}
-      height="100vh"
+      height={{ base: "100%", md: "100vh", lg: "100vh" }}
       gridGap={{ base: 2, md: 10, lg: 10 }}
     >
       <Heading textAlign="center" mt={10}>
