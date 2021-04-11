@@ -1,7 +1,8 @@
 import { Button, ButtonGroup } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { Box, Divider, Flex, HStack, VStack } from "@chakra-ui/layout";
+import { Box, Divider, Flex, VStack } from "@chakra-ui/layout";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -15,12 +16,19 @@ function NavBar() {
   const MotionButton = motion(Button);
   const MotionVStack = motion(VStack);
   const navBg = useColorModeValue("#FFFECB", "#272343");
-
   const mobileNavBack = useColorModeValue("#FFFECB", "#272343");
-
+  let targetElement;
+  if (process.browser) {
+    targetElement = document.querySelector("#mobileNav");
+  }
   const openNav = () => {
     mobileNavOpen(!mobileNav);
+
+    mobileNav
+      ? enableBodyScroll(targetElement)
+      : disableBodyScroll(targetElement);
   };
+
   return (
     <>
       <Flex
@@ -141,7 +149,10 @@ function NavBar() {
           </ButtonGroup>
         </Flex>
 
-        <Box display={{ base: "block", md: "block", lg: "none" }}>
+        <Box
+          display={{ base: "block", md: "block", lg: "none" }}
+          id="mobileNav"
+        >
           <AnimatePresence>
             {mobileNav ? (
               <Box
