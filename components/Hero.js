@@ -39,8 +39,8 @@ const Hero = () => {
         gridGap="0px 0px"
         gridTemplateAreas="'firstName Image lastName ''leftText Image rightText '"
         margin="auto"
-        width="container.xl"
         placeItems="center"
+        maxW="container.xl"
       >
         <MotionBox gridArea="Image">
           <AnimatePresence
@@ -116,7 +116,7 @@ const Hero = () => {
           </SplitText>
         </Heading>
 
-        <Text
+        <Box
           gridArea="rightText"
           textColor={colorTimeline}
           width="22rem"
@@ -141,7 +141,7 @@ const Hero = () => {
               2019 Feb - Started as a intern
             </ListItem>
           </List>
-        </Text>
+        </Box>
       </Grid>
       <Flex
         alignItems="base"

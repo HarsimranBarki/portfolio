@@ -1,6 +1,7 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import {
   Box,
+  Flex,
   Grid,
   Heading,
   List,
@@ -15,6 +16,8 @@ import TopTracks from "./TopTracks";
 import HeroMe from "public/Hero.png";
 import HeroMeDark from "public/HeroDark.png";
 import Image from "next/image";
+import HeroScroll from "public/HeroScroll.png";
+import { motion } from "framer-motion";
 const HeroMobile = () => {
   const color = useColorModeValue(
     "lightPallete.darkRed",
@@ -29,10 +32,9 @@ const HeroMobile = () => {
     <Grid
       placeItems="center"
       padding={{ base: 5, md: 10, lg: 10 }}
-      gridGap={10}
-      gridTemplateRows="repeat(4,1fr)"
+      gridGap={{ sm: 5, base: 8, md: 10, lg: 10 }}
     >
-      <Heading>
+      <Heading textAlign="center">
         <SplitText
           initial={{ y: "100%", x: 0 }}
           animate="visible"
@@ -60,7 +62,7 @@ const HeroMobile = () => {
         <List spacing={3}>
           <ListItem alignItems="center" display="flex">
             <ListIcon as={FaSpotify} color="green.500" />
-            Spotify - {""}
+            Listening - {""}
             <TopTracks />
           </ListItem>
           <ListItem alignItems="center" display="flex">
@@ -77,6 +79,22 @@ const HeroMobile = () => {
           </ListItem>
         </List>
       </Box>
+      <Flex
+        alignItems="base"
+        justifyContent="center"
+        width="90vw"
+        marginTop={20}
+        cursor="pointer"
+      >
+        <Text mr={5}>scroll</Text>
+        <motion.div
+          whileHover={{
+            y: 10,
+          }}
+        >
+          <Image src={HeroScroll} layout="intrinsic" height={30} width={15} />
+        </motion.div>
+      </Flex>
     </Grid>
   );
 };

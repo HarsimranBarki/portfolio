@@ -4,14 +4,21 @@ import { Box } from "@chakra-ui/layout";
 import Head from "next/head";
 import { useMediaQuery } from "react-responsive";
 export default function Home() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const isTabletOrMobile = useMediaQuery({ maxDeviceWidth: 1224 });
   return (
     <Box>
       <Head>
         <title>Harsimran Singh Barki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{isTabletOrMobile ? <HeroMobile /> : <Hero />}</main>
+      <main>
+        <Box display={{ base: "none", md: "none", lg: "block" }}>
+          <Hero />
+        </Box>
+        <Box display={{ base: "block", md: "block", lg: "none" }}>
+          <HeroMobile />
+        </Box>
+      </main>
     </Box>
   );
 }

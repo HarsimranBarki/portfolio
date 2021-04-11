@@ -22,7 +22,7 @@ function NavBar() {
   };
   return (
     <Box
-      padding={8}
+      padding={{ base: 3, md: 5, lg: 8 }}
       maxW={{ base: "100vw", md: "90vw", lg: "90vw" }}
       margin="auto"
     >
