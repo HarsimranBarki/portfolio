@@ -8,7 +8,6 @@ export default function TopTracks() {
   if (!data) {
     return null;
   }
-  console.log(data);
 
   return (
     <Link ml={1} href={data.tracks[0].songUrl}>

@@ -30,7 +30,7 @@ const HeroMobile = () => {
       placeItems="center"
       padding={{ base: 5, md: 10, lg: 10 }}
       gridGap={10}
-      height="100vh"
+      gridTemplateRows="repeat(4,1fr)"
     >
       <Heading>
         <SplitText
@@ -56,7 +56,7 @@ const HeroMobile = () => {
         accessibility, SEO and performance so you don't have - to.
       </Text>
 
-      <Text textColor={colorTimeline} justifySelf="center">
+      <Box textColor={colorTimeline} justifySelf="center">
         <List spacing={3}>
           <ListItem alignItems="center" display="flex">
             <ListIcon as={FaSpotify} color="green.500" />
@@ -76,8 +76,7 @@ const HeroMobile = () => {
             2019 Feb - Started as a intern
           </ListItem>
         </List>
-      </Text>
-      <Image src={image} layout="intrinsic" height={500} width={200} />
+      </Box>
     </Grid>
   );
 };
