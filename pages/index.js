@@ -1,5 +1,7 @@
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import HeroMobile from "@/components/HeroMobile";
+import Things from "@/components/Things";
 import Who from "@/components/Who";
 import { Box } from "@chakra-ui/layout";
 import Head from "next/head";
@@ -20,6 +22,8 @@ export default function Home() {
           <HeroMobile />
         </Box>
         <Who />
+        <Things />
+        <About />
       </main>
     </Box>
   );

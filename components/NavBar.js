@@ -113,7 +113,7 @@ function NavBar() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: 30, opacity: 0 }}
                     >
-                      <SunIcon fontSize="3xl" marginBottom={2} />
+                      <SunIcon fontSize="2xl" marginBottom={2} />
                     </motion.div>
 
                     <Divider></Divider>
@@ -132,7 +132,7 @@ function NavBar() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: 30, opacity: 0 }}
                     >
-                      <MoonIcon fontSize="3xl" marginBottom={2} />
+                      <MoonIcon fontSize="2xl" marginBottom={2} />
                     </motion.div>
                     <Divider colorScheme="white"></Divider>
                     <motion.div

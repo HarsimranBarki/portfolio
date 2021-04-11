@@ -3,15 +3,15 @@ import fetcher from "@/lib/fetcher";
 import { Link, Text } from "@chakra-ui/layout";
 
 export default function TopTracks() {
-  const { data } = useSWR("/api/top-tracks", fetcher);
+  const { data } = useSWR("/api/now-playing", fetcher);
 
   if (!data) {
     return null;
   }
 
   return (
-    <Link ml={1} href={data.tracks[0].songUrl}>
-      {""} {data.tracks[0].title} by {data.tracks[0].artist}
+    <Link href={data.songUrl} target="_blank" ml={1}>
+      {data.title} ({data.album})
     </Link>
   );
 }

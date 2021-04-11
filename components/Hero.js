@@ -126,7 +126,7 @@ const Hero = () => {
           <List spacing={3}>
             <ListItem alignItems="center" display="flex">
               <ListIcon as={FaSpotify} color="green.500" />
-              Spotify - {""}
+              Spotify - {"\t"}
               <TopTracks />
             </ListItem>
             <ListItem alignItems="center" display="flex">

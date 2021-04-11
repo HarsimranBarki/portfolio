@@ -27,7 +27,10 @@ const theme = {
       red: "#FF2E00",
       yellow: "#FEA82f",
       lightYellow: "#FFFECB",
-      lightestYellow: "#FBFFDA",
+      lightestYellow: "#FFFEDA",
+      whiteYellow: "#FFFEE8",
+      whitestYellow: "FFFFF3",
+      white: "#FFFFFF",
     },
     darkPallete: {
       purple: "#272343",
@@ -35,7 +38,10 @@ const theme = {
       lightTeal: "#BAE8E8",
       veryLightTeal: "#E3F6F5",
       white: "#FAFAFA",
-      darkPurple: "#27143B",
+      lightPurple: "#221F3B",
+      darkPurple: "#1A1734",
+      veryDarkPurple: "#13102A",
+      blackPurple: "#0D0B1E",
     },
   },
   styles: {
