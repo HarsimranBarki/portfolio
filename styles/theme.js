@@ -27,6 +27,7 @@ const theme = {
       red: "#FF2E00",
       yellow: "#FEA82f",
       lightYellow: "#FFFECB",
+      lightestYellow: "#FBFFDA",
     },
     darkPallete: {
       purple: "#272343",
@@ -34,6 +35,7 @@ const theme = {
       lightTeal: "#BAE8E8",
       veryLightTeal: "#E3F6F5",
       white: "#FAFAFA",
+      darkPurple: "#27143B",
     },
   },
   styles: {

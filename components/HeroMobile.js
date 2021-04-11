@@ -32,9 +32,10 @@ const HeroMobile = () => {
     <Grid
       placeItems="center"
       padding={{ base: 5, md: 10, lg: 10 }}
-      gridGap={{ sm: 5, base: 8, md: 10, lg: 10 }}
+      height="100vh"
+      gridGap={{ base: 2, md: 10, lg: 10 }}
     >
-      <Heading textAlign="center">
+      <Heading textAlign="center" mt={10}>
         <SplitText
           initial={{ y: "100%", x: 0 }}
           animate="visible"

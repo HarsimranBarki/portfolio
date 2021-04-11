@@ -33,7 +33,7 @@ const Hero = () => {
   const MotionImage = motion(Image);
 
   return (
-    <Box my={20}>
+    <Box height="100vh" position="relative">
       <Grid
         gridTemplateColumns="1fr 200px 1fr"
         gridGap="0px 0px"
@@ -41,6 +41,7 @@ const Hero = () => {
         margin="auto"
         placeItems="center"
         maxW="container.xl"
+        height="100%"
       >
         <MotionBox gridArea="Image">
           <AnimatePresence
@@ -149,6 +150,8 @@ const Hero = () => {
         width="90vw"
         marginTop={20}
         cursor="pointer"
+        position="absolute"
+        bottom="10"
       >
         <Text mr={5}>scroll</Text>
         <motion.div

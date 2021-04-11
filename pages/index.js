@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import HeroMobile from "@/components/HeroMobile";
+import Who from "@/components/Who";
 import { Box } from "@chakra-ui/layout";
 import Head from "next/head";
 import { useMediaQuery } from "react-responsive";
@@ -18,6 +19,7 @@ export default function Home() {
         <Box display={{ base: "block", md: "block", lg: "none" }}>
           <HeroMobile />
         </Box>
+        <Who />
       </main>
     </Box>
   );
