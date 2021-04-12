@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <Box>
       <Head>
-        <title>Harsimran Singh Barki</title>
+        <title>Harsimran</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
