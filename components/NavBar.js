@@ -4,14 +4,22 @@ import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Box, Divider, Flex, VStack } from "@chakra-ui/layout";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 
 function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue("lightPallete.yellow", "darkPallete.teal");
   const color = useColorModeValue("lightPallete.red", "white");
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   const [mobileNav, mobileNavOpen] = useState(false);
   const MotionButton = motion(Button);
   const MotionVStack = motion(VStack);
@@ -27,6 +35,23 @@ function NavBar() {
     mobileNav
       ? enableBodyScroll(targetElement)
       : disableBodyScroll(targetElement);
+  };
+
+  const [scrollNav, setScrollNav] = useState(false);
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
   };
 
   return (
@@ -58,6 +83,8 @@ function NavBar() {
         >
           <ButtonGroup spacing={10} variant="ghost" textColor={color}>
             <MotionButton
+              onClick={() => toggleHome()}
+              to="discover"
               whileHover={{
                 y: -5,
               }}
@@ -67,36 +94,68 @@ function NavBar() {
             >
               Home
             </MotionButton>
-            <MotionButton
-              whileHover={{
-                y: -5,
-              }}
-              _hover={{
-                bg,
-              }}
+
+            <Link
+              activeClass="active"
+              to="who"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
             >
-              About
-            </MotionButton>
-            <MotionButton
-              whileHover={{
-                y: -5,
-              }}
-              _hover={{
-                bg,
-              }}
+              {" "}
+              <MotionButton
+                whileHover={{
+                  y: -5,
+                }}
+                _hover={{
+                  bg,
+                }}
+              >
+                About
+              </MotionButton>
+            </Link>
+            <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
             >
-              Projects
-            </MotionButton>
-            <MotionButton
-              whileHover={{
-                y: -5,
-              }}
-              _hover={{
-                bg,
-              }}
+              {" "}
+              <MotionButton
+                whileHover={{
+                  y: -5,
+                }}
+                _hover={{
+                  bg,
+                }}
+              >
+                Projects
+              </MotionButton>
+            </Link>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
             >
-              Contact
-            </MotionButton>
+              {" "}
+              <MotionButton
+                whileHover={{
+                  y: -5,
+                }}
+                _hover={{
+                  bg,
+                }}
+              >
+                Contact
+              </MotionButton>
+            </Link>
+
             <MotionButton
               onClick={toggleColorMode}
               display="flex"

@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import fetcher from "@/lib/fetcher";
-import { Link, Text } from "@chakra-ui/layout";
 
 export default function TopTracks() {
   const { data } = useSWR("/api/now-playing", fetcher);
@@ -12,6 +11,8 @@ export default function TopTracks() {
   if (data.length == 0) {
     return <>Spotify - Not Playing</>;
   }
-
+  if (data.isPlaying == false) {
+    return <>Spotify - Not Playing</>;
+  }
   return <> Spotify - {data.title}</>;
 }

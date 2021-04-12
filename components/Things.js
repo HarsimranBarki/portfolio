@@ -53,7 +53,12 @@ const Things = () => {
   };
 
   return (
-    <Box bg={bg} padding={{ base: 10, md: 10, lg: 20 }} textAlign="center">
+    <Box
+      bg={bg}
+      padding={{ base: 10, md: 10, lg: 20 }}
+      textAlign="center"
+      name="projects"
+    >
       <Heading>Things I Did</Heading>
       <Text mt={5}>
         Here are a few design projects I've worked on recently.

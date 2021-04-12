@@ -62,7 +62,7 @@ const Who = () => {
   const image = useColorModeValue(WhoDark, WhoWhite);
 
   return (
-    <Box bg={bg}>
+    <Box bg={bg} name="who">
       <Grid
         placeItems="center"
         gridTemplateColumns={{ base: "1fr", md: "1fr", lg: "40% 1fr" }}

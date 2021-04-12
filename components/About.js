@@ -25,7 +25,7 @@ const About = () => {
   const MotionListItem = motion(ListItem);
   return (
     <>
-      <Box bg={bg} padding={{ base: 10, md: 10, lg: 20 }}>
+      <Box bg={bg} padding={{ base: 10, md: 10, lg: 20 }} name="about">
         <Flex
           justifyContent="space-around"
           direction={{ base: "column", md: "row" }}
