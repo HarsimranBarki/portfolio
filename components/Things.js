@@ -19,31 +19,35 @@ const Things = () => {
     "darkPallete.veryDarkPurple"
   );
   const cardButton = useColorModeValue(
-    "lightPallete.red",
+    "lightPallete.yellow",
     "darkPallete.veryLightTeal"
   );
 
   const projects = {
     website: [
       {
-        name: "Royal Brothers",
-        desc:
-          "Bike Rental Company. Rebuilt entire UI to a new design which is more modern and fresh.",
-        link: "https://localhost:3000",
-      },
-      {
+        id: "011212",
         name: "Athayog Living",
         desc:
-          "Elevate your Yogic practice by instilling transformation with a strong hold on your lifestyle.",
-        link: "https://localhost:3000",
+          "Built the entire website architecture from Front-End to Back-End to help them increase their customer base & sell their courses",
+        link: "https://www.royalbrothers:com",
       },
       {
+        id: "011999",
+        name: "Royal Brothers",
+        desc:
+          "Revamped Website UI to a newer modern design for better customer retention with SEO boost",
+        link: "https://www.athayogliving.com",
+      },
+      {
+        id: "092323",
         name: "Simple Pomodoro",
         desc:
-          "Elevate your Yogic practice by instilling transformation with a strong hold on your lifestyle.",
+          "A simple free modern and useful pomodoro tracker no accounts no login no hassle.",
         link: "https://localhost:3000",
       },
       {
+        id: "666212",
         name: "Other Project",
         desc:
           "Elevate your Yogic practice by instilling transformation with a strong hold on your lifestyle.",
@@ -90,6 +94,7 @@ const Things = () => {
               justifySelf="center"
               direction="column"
               justifyContent="space-between"
+              key={data.id}
               alignSelf="center"
               textColor="black"
               height="100%"

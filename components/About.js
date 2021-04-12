@@ -22,10 +22,11 @@ const About = () => {
     "lightPallete.darkRed",
     "darkPallete.veryLightTeal"
   );
+  const colorLink = useColorModeValue("lightPallete.red", "darkPallete.teal");
   const MotionListItem = motion(ListItem);
   return (
     <>
-      <Box bg={bg} padding={{ base: 10, md: 10, lg: 20 }} name="about">
+      <Box bg={bg} padding={{ base: 10, md: 10, lg: 20 }} name="contact">
         <Flex
           justifyContent="space-around"
           direction={{ base: "column", md: "row" }}
@@ -37,7 +38,7 @@ const About = () => {
             <Text textColor={colorResume} mt={2}>
               Here For Hiring? Download My Resume Below
             </Text>
-            <a href="/Resume2021.pdf" downlaod target="_blank">
+            <a href="/Resume2021.pdf" downlaod="true" target="_blank">
               <Button mt={5} colorScheme="red" rounded="full">
                 Resume
               </Button>
@@ -45,7 +46,7 @@ const About = () => {
           </Box>
           <Box>
             <Heading>Contact</Heading>
-            <List spacing={5} mt={5}>
+            <List spacing={5} mt={5} textColor={colorLink}>
               <MotionListItem
                 initial={{
                   x: 0,
@@ -59,7 +60,7 @@ const About = () => {
                 href="mailto:harsimransinghbarki@gmail.com"
                 isExternal
               >
-                <ListIcon as={MdMail} color={color} />
+                <ListIcon as={MdMail} color={colorLink} />
                 Email
               </MotionListItem>
               <MotionListItem
@@ -75,7 +76,7 @@ const About = () => {
                 href="https://www.linkedin.com/in/harsimran-singh-05384a175/"
                 isExternal
               >
-                <ListIcon as={FaLinkedin} color={color} />
+                <ListIcon as={FaLinkedin} color={colorLink} />
                 LinkedIn
               </MotionListItem>
               <MotionListItem
@@ -91,7 +92,7 @@ const About = () => {
                 href="https://github.com/HarsimranBarki"
                 isExternal
               >
-                <ListIcon as={FaGithub} color={color} />
+                <ListIcon as={FaGithub} color={colorLink} />
                 GitHub
               </MotionListItem>
               <MotionListItem
@@ -107,7 +108,7 @@ const About = () => {
                 href="https://www.instagram.com/harsimransinghb/"
                 isExternal
               >
-                <ListIcon as={FaInstagramSquare} color={color} />
+                <ListIcon as={FaInstagramSquare} color={colorLink} />
                 Instagram
               </MotionListItem>
             </List>

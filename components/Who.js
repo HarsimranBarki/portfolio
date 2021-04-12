@@ -24,6 +24,7 @@ import {
   DiJavascript,
   DiRubyRough,
 } from "react-icons/di";
+import { FaKeyboard, FaMouse } from "react-icons/fa";
 import {
   SiFirebase,
   SiPostgresql,
@@ -36,7 +37,9 @@ import {
   SiReact,
   SiServerless,
 } from "react-icons/si";
+import { MdLaptop } from "react-icons/md";
 import { motion } from "framer-motion";
+import { GiProcessor } from "react-icons/gi";
 
 const Who = () => {
   const bg = useColorModeValue(
@@ -94,24 +97,28 @@ const Who = () => {
             textColor={colorTimeline}
             flexWrap="wrap"
           >
-            <Box>
+            <Box mb={5}>
               <Text fontStyle="italic">Things i know</Text>
               <List spacing={3} marginTop={5}>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   alignItems="center"
                   display="flex"
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                 >
                   <ListIcon as={SiReact} color={colorTimeline} />
                   React JS
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -120,9 +127,11 @@ const Who = () => {
                   Next JS
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -131,9 +140,11 @@ const Who = () => {
                   HTML
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -142,9 +153,11 @@ const Who = () => {
                   CSS
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -153,9 +166,11 @@ const Who = () => {
                   JavaScript
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -164,9 +179,11 @@ const Who = () => {
                   Ruby On Rails
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -175,9 +192,11 @@ const Who = () => {
                   Firebase
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -186,9 +205,11 @@ const Who = () => {
                   PostgresSQL
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -202,9 +223,11 @@ const Who = () => {
               <Text fontStyle="italic">Things in progress</Text>
               <List spacing={3} marginTop={5}>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -213,9 +236,11 @@ const Who = () => {
                   Node JS
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -224,9 +249,11 @@ const Who = () => {
                   System Design
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -235,9 +262,11 @@ const Who = () => {
                   TypeScript
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
@@ -246,15 +275,75 @@ const Who = () => {
                   GraphQL
                 </MotionListItem>
                 <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                   whileHover={{
                     x: 5,
-                    textDecoration: "underline",
                   }}
                   alignItems="center"
                   display="flex"
                 >
                   <ListIcon as={SiServerless} color={colorTimeline} />
                   Web Server
+                </MotionListItem>
+              </List>
+            </Box>
+            <Box>
+              <Text fontStyle="italic">My Setup</Text>
+              <List spacing={3} marginTop={5}>
+                <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
+                  whileHover={{
+                    x: 5,
+                  }}
+                  alignItems="center"
+                  display="flex"
+                >
+                  <ListIcon as={MdLaptop} color={colorTimeline} />
+                  Asus S15
+                </MotionListItem>
+                <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
+                  whileHover={{
+                    x: 5,
+                  }}
+                  alignItems="center"
+                  display="flex"
+                >
+                  <ListIcon as={GiProcessor} color={colorTimeline} />
+                  Intel i7 8th & 16GB Ram
+                </MotionListItem>
+
+                <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
+                  whileHover={{
+                    x: 5,
+                  }}
+                  alignItems="center"
+                  display="flex"
+                >
+                  <ListIcon as={FaKeyboard} color={colorTimeline} />
+                  Skyloong SK64 (Yellow Optical)
+                </MotionListItem>
+                <MotionListItem
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
+                  whileHover={{
+                    x: 5,
+                  }}
+                  alignItems="center"
+                  display="flex"
+                >
+                  <ListIcon as={FaMouse} color={colorTimeline} />
+                  Logitech G402
                 </MotionListItem>
               </List>
             </Box>
