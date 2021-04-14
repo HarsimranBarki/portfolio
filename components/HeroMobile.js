@@ -16,6 +16,7 @@ import TopTracks from "./TopTracks";
 import HeroMe from "public/Hero.png";
 import HeroMeDark from "public/HeroDark.png";
 import Image from "next/image";
+
 import HeroScroll from "public/HeroScroll.png";
 import { motion } from "framer-motion";
 const HeroMobile = () => {
@@ -29,74 +30,86 @@ const HeroMobile = () => {
   );
   const image = useColorModeValue(HeroMe, HeroMeDark);
   return (
-    <Grid
-      placeItems="center"
-      padding={{ base: 5, md: 10, lg: 10 }}
-      height={{ base: "100%", md: "100vh", lg: "100vh" }}
-      gridGap={{ base: 2, md: 10, lg: 10 }}
-    >
-      <Heading textAlign="center" mt={10}>
-        <SplitText
-          initial={{ y: "100%", x: 0 }}
-          animate="visible"
-          variants={{
-            visible: (i) => ({
-              y: 0,
-              originY: 0,
-
-              transition: {
-                delay: i * 0.1,
-              },
-            }),
-          }}
-        >
-          Harsimran Singh Barki
-        </SplitText>
-      </Heading>
-      <Text textColor={color} justifySelf="center" textAlign="center">
-        Hi!. I Like to deal with beautiful UI and convert them into - functional
-        & usable websites. I studied in's and out's of web - development,
-        accessibility, SEO and performance so you don't have - to.
-      </Text>
-
-      <Box textColor={colorTimeline} justifySelf="center">
-        <List spacing={3}>
-          <ListItem alignItems="center" display="flex">
-            <ListIcon as={FaSpotify} color="green.500" />
-            Listening - {""}
-            <TopTracks />
-          </ListItem>
-          <ListItem alignItems="center" display="flex">
-            <ListIcon as={FaCheckCircle} color="green.500" /> 2021 Jan - First
-            Freelance Project
-          </ListItem>
-          <ListItem alignItems="center" display="flex">
-            <ListIcon as={FaCheckCircle} color="green.500" />
-            2019 Apr - First Full Time Job
-          </ListItem>
-          <ListItem alignItems="center" display="flex">
-            <ListIcon as={FaCheckCircle} color="green.500" />
-            2019 Feb - Started as a intern
-          </ListItem>
-        </List>
-      </Box>
-      <Flex
-        alignItems="base"
-        justifyContent="center"
-        width="90vw"
-        marginTop={20}
-        cursor="pointer"
+    <Box position="relative">
+      <Grid
+        placeItems="center"
+        padding={{ base: 5, md: 10, lg: 10 }}
+        height={{ base: "100%", md: "100vh", lg: "100vh" }}
+        gridGap={{ base: 10, md: 10, lg: 10 }}
       >
-        <Text mr={5}>scroll</Text>
-        <motion.div
-          whileHover={{
-            y: 10,
-          }}
+        <Heading
+          textAlign="center"
+          mt={10}
+          fontSize="5xl"
+          fontWeight="bold"
+          lineHeight="shorter"
         >
-          <Image src={HeroScroll} layout="intrinsic" height={30} width={15} />
-        </motion.div>
-      </Flex>
-    </Grid>
+          <SplitText
+            initial={{ y: "100%", x: 0 }}
+            animate="visible"
+            variants={{
+              visible: (i) => ({
+                y: 0,
+                originY: 0,
+
+                transition: {
+                  delay: i * 0.1,
+                },
+              }),
+            }}
+          >
+            Harsimran Singh Barki
+          </SplitText>
+        </Heading>
+        <Text textColor={color} justifySelf="center" textAlign="center">
+          Hi!. I Like to deal with beautiful UI and convert them into -
+          functional & usable websites. I studied in's and out's of web -
+          development, accessibility, SEO and performance so you don't have -
+          to.
+        </Text>
+
+        <Box textColor={colorTimeline} justifySelf="center">
+          <List spacing={3}>
+            <ListItem alignItems="center" display="flex">
+              <ListIcon as={FaSpotify} color="green.500" />
+              Listening - {""}
+              <TopTracks />
+            </ListItem>
+            <ListItem alignItems="center" display="flex">
+              <ListIcon as={FaCheckCircle} color="green.500" /> 2021 Jan - First
+              Freelance Project
+            </ListItem>
+            <ListItem alignItems="center" display="flex">
+              <ListIcon as={FaCheckCircle} color="green.500" />
+              2019 Apr - First Full Time Job
+            </ListItem>
+            <ListItem alignItems="center" display="flex">
+              <ListIcon as={FaCheckCircle} color="green.500" />
+              2019 Feb - Started as a intern
+            </ListItem>
+          </List>
+        </Box>
+        <Flex
+          alignItems="base"
+          justifyContent="center"
+          width="90vw"
+          marginTop={20}
+          cursor="pointer"
+        >
+          <Text mr={5}>scroll</Text>
+          <motion.div
+            whileHover={{
+              y: 10,
+            }}
+          >
+            <Image src={HeroScroll} layout="intrinsic" height={30} width={15} />
+          </motion.div>
+        </Flex>
+      </Grid>
+      <Box position="absolute" zIndex={1} bottom="0" left="0" opacity={0.2}>
+        <Image src={image} layout="intrinsic" height="100%" width={50} />
+      </Box>
+    </Box>
   );
 };
 

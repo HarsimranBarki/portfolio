@@ -7,10 +7,7 @@ export function SplitText({ children, ...rest }) {
 
   return words.map((word, i) => {
     return (
-      <div
-        key={children + i}
-        style={{ display: "inline-block", overflow: "hidden" }}
-      >
+      <div key={children + i} style={{ display: "inline-block" }}>
         <motion.div
           {...rest}
           style={{ display: "inline-block", willChange: "transform" }}

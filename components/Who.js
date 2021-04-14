@@ -70,7 +70,8 @@ const Who = () => {
         placeItems="center"
         gridTemplateColumns={{ base: "1fr", md: "1fr", lg: "40% 1fr" }}
         height={{ base: "100%", md: "100vh", lg: "100vh" }}
-        padding={{ base: 5, md: 10, lg: 10 }}
+        px={{ base: 5, md: 10, lg: 10 }}
+        py={{ base: 10, md: 10, lg: 10 }}
         maxWidth="container.xl"
         flexDirection="column-reverse"
         margin="auto"
@@ -80,7 +81,10 @@ const Who = () => {
           <Image src={image} layout="intrinsic" height={500} width={300} />
         </MotionBox>
         <Stack spacing={10}>
-          <MotionHeading fontSize={{ base: "3xl", md: "6xl" }}>
+          <MotionHeading
+            fontSize={{ base: "3xl", md: "6xl" }}
+            textAlign="center"
+          >
             Harsimran. Who?
           </MotionHeading>
           <Text textColor={color} cursor="normal">
@@ -98,7 +102,9 @@ const Who = () => {
             flexWrap="wrap"
           >
             <Box mb={5}>
-              <Text fontStyle="italic">Things i know</Text>
+              <Text fontStyle="italic" textDecoration="underline">
+                Things i know
+              </Text>
               <List spacing={3} marginTop={5}>
                 <MotionListItem
                   _hover={{
@@ -220,7 +226,9 @@ const Who = () => {
               </List>
             </Box>
             <Box>
-              <Text fontStyle="italic">Things in progress</Text>
+              <Text fontStyle="italic" textDecoration="underline">
+                Things in progress
+              </Text>
               <List spacing={3} marginTop={5}>
                 <MotionListItem
                   _hover={{
@@ -290,7 +298,9 @@ const Who = () => {
               </List>
             </Box>
             <Box>
-              <Text fontStyle="italic">My Setup</Text>
+              <Text textDecoration="underline" fontStyle="italic">
+                My Setup
+              </Text>
               <List spacing={3} marginTop={5}>
                 <MotionListItem
                   _hover={{

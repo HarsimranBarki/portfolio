@@ -82,6 +82,8 @@ const Hero = () => {
           gridArea="leftText"
           textColor={color}
           width="24rem"
+          alignSelf="flex-start"
+          mt={5}
           justifySelf="flex-end"
         >
           Hi!. I Like to deal with beautiful UI and convert them into -
@@ -102,7 +104,7 @@ const Hero = () => {
             initial={{ y: "100%", x: 0 }}
             animate="visible"
             variants={{
-              delay: 0.2,
+              delay: 0.5,
               visible: (i) => ({
                 y: 0,
                 originY: 0,
@@ -122,6 +124,8 @@ const Hero = () => {
           textColor={colorTimeline}
           width="22rem"
           justifySelf="center"
+          alignSelf="flex-start"
+          mt={5}
         >
           <List spacing={3}>
             <ListItem alignItems="center" display="flex">

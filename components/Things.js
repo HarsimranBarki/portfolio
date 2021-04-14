@@ -12,7 +12,7 @@ const Things = () => {
   );
 
   const cardBg = useColorModeValue(
-    "lightPallete.lightYellow",
+    "lightPallete.white",
     "darkPallete.lightTeal"
   );
   const cardColor = useColorModeValue(
@@ -20,7 +20,7 @@ const Things = () => {
     "darkPallete.veryDarkPurple"
   );
   const cardButton = useColorModeValue(
-    "lightPallete.yellow",
+    "lightPallete.red",
     "darkPallete.veryLightTeal"
   );
 
