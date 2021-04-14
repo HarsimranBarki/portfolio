@@ -2,6 +2,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Flex, Grid, Heading, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 import Link from "next/link";
+
 import { Button } from "@chakra-ui/button";
 import rb from "public/rb.png";
 const Things = () => {
@@ -11,7 +12,7 @@ const Things = () => {
   );
 
   const cardBg = useColorModeValue(
-    "lightPallete.white",
+    "lightPallete.lightYellow",
     "darkPallete.lightTeal"
   );
   const cardColor = useColorModeValue(
@@ -30,14 +31,14 @@ const Things = () => {
         name: "Athayog Living",
         desc:
           "Built the entire website architecture from Front-End to Back-End to help them increase their customer base & sell their courses",
-        link: "https://www.royalbrothers:com",
+        link: "https://athayogliving.com/",
       },
       {
         id: "011999",
         name: "Royal Brothers",
         desc:
           "Revamped Website UI to a newer modern design for better customer retention with SEO boost",
-        link: "https://www.athayogliving.com",
+        link: "https://royalbrothers.com",
       },
       {
         id: "092323",
@@ -107,6 +108,7 @@ const Things = () => {
                 {data.name}
               </Text>
               <Text mt={5}>{data.desc}</Text>
+
               <Link href={data.link} passHref>
                 <Button mt={5} bg={cardButton}>
                   Visit Website
