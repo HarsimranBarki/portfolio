@@ -16,6 +16,14 @@ import TopTracks from "./TopTracks";
 import HeroMe from "public/Hero.png";
 import HeroMeDark from "public/HeroDark.png";
 import Image from "next/image";
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 
 import HeroScroll from "public/HeroScroll.png";
 import { motion } from "framer-motion";
@@ -107,7 +115,17 @@ const HeroMobile = () => {
         </Flex>
       </Grid>
       <Box position="absolute" zIndex={1} bottom="0" left="0" opacity={0.2}>
-        <Image src={image} layout="intrinsic" height="100%" width={50} />
+        <Link
+          activeClass="active"
+          to="who"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
+        >
+          {" "}
+          <Image src={image} layout="intrinsic" height="100%" width={50} />
+        </Link>
       </Box>
     </Box>
   );

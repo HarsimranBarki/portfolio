@@ -18,6 +18,14 @@ import TopTracks from "./TopTracks";
 import { AnimatePresence, motion } from "framer-motion";
 import { SplitText } from "./SplitText";
 import HeroScroll from "public/HeroScroll.png";
+import {
+  Link,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 
 const Hero = () => {
   const color = useColorModeValue(
@@ -147,7 +155,7 @@ const Hero = () => {
             </ListItem>
           </List>
         </Box>
-      </Grid>
+      </Grid>{" "}
       <Flex
         alignItems="base"
         justifyContent="flex-end"
@@ -163,7 +171,16 @@ const Hero = () => {
             y: 10,
           }}
         >
-          <Image src={HeroScroll} layout="intrinsic" height={30} width={15} />
+          <Link
+            activeClass="active"
+            to="who"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+          >
+            <Image src={HeroScroll} layout="intrinsic" height={30} width={15} />{" "}
+          </Link>
         </motion.div>
       </Flex>
     </Box>
