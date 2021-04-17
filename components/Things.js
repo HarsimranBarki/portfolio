@@ -13,16 +13,14 @@ const Things = () => {
 
   const cardBg = useColorModeValue(
     "lightPallete.white",
-    "darkPallete.lightTeal"
+    "darkPallete.lightPurple"
   );
   const cardColor = useColorModeValue(
-    "lightPallete.white",
-    "darkPallete.veryDarkPurple"
+    "lightPallete.black",
+    "darkPallete.white"
   );
-  const cardButton = useColorModeValue(
-    "lightPallete.red",
-    "darkPallete.veryLightTeal"
-  );
+  const cardBorder = useColorModeValue("gray.200", "gray.500");
+  const cardButton = useColorModeValue("gray.300", "darkPallete.teal");
 
   const projects = {
     website: [
@@ -85,10 +83,11 @@ const Things = () => {
               alignSelf="center"
               textColor="black"
               height="100%"
-              boxShadow="md"
+              textColor={cardColor}
               padding={{ base: 5, md: 10, lg: 10 }}
               zIndex={10}
-              textColor="black"
+              border="1px solid"
+              borderColor={cardBorder}
             >
               <Text fontWeight="medium" fontSize={{ base: "2xl", md: "3xl" }}>
                 {data.name}
