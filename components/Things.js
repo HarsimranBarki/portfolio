@@ -5,6 +5,11 @@ import Link from "next/link";
 
 import { Button } from "@chakra-ui/button";
 import rb from "public/rb.png";
+import rbLogo from "public/rbLogo.png";
+import athayog from "public/athayog.png";
+import athayogLogo from "public/athayogLogo.png";
+import templates from "public/templates.png";
+import { motion } from "framer-motion";
 const Things = () => {
   const bg = useColorModeValue(
     "lightPallete.whiteYellow",
@@ -15,13 +20,12 @@ const Things = () => {
     "lightPallete.white",
     "darkPallete.lightPurple"
   );
-  const cardColor = useColorModeValue(
-    "lightPallete.black",
-    "darkPallete.white"
-  );
+  const cardColor = useColorModeValue("lightPallete.black", "black");
   const cardBorder = useColorModeValue("gray.200", "gray.500");
-  const cardButton = useColorModeValue("gray.300", "darkPallete.teal");
+  const cardButton = useColorModeValue("gray.600", "darkPallete.teal");
 
+  const MotionText = motion(Text);
+  const MotionButton = motion(Button);
   const projects = {
     website: [
       {
@@ -30,6 +34,8 @@ const Things = () => {
         desc:
           "Built the entire website architecture from Front-End to Back-End to help them increase their customer base & sell their courses",
         link: "https://athayogliving.com/",
+        image: athayog,
+        gradient: "rgba(132, 152, 109, 0.8),rgba(173, 220, 188, 1)",
       },
       {
         id: "011999",
@@ -37,6 +43,17 @@ const Things = () => {
         desc:
           "Revamped Website UI to a newer modern design for better customer retention with SEO boost",
         link: "https://royalbrothers.com",
+        image: rb,
+        gradient: "rgba(254, 210, 80, 0.8),rgba(254, 210, 80, 1)",
+      },
+      {
+        id: "014343",
+        name: "Theme Collection",
+        desc:
+          "A collection of my HTML & CSS Design Templates built with various tech stack",
+        link: "https://github.com/HarsimranBarki/theme-collection",
+        image: templates,
+        gradient: "rgba(255, 192, 203, 0.8),rgba(255, 192, 203, 1)",
       },
     ],
   };
@@ -75,7 +92,6 @@ const Things = () => {
               position="relative"
               rounded="lg"
               overflow="hidden"
-              bg={cardBg}
               justifySelf="center"
               direction="column"
               justifyContent="space-between"
@@ -88,17 +104,37 @@ const Things = () => {
               zIndex={10}
               border="1px solid"
               borderColor={cardBorder}
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              backgroundPosition="center"
+              style={{
+                backgroundImage: `linear-gradient(${data.gradient} ),url(${data.image})`,
+              }}
             >
-              <Text fontWeight="medium" fontSize={{ base: "2xl", md: "3xl" }}>
+              <MotionText
+                fontWeight="medium"
+                fontSize={{ base: "2xl", md: "3xl" }}
+              >
                 {data.name}
-              </Text>
-              <Text mt={5}>{data.desc}</Text>
+              </MotionText>
+              <motion.div
+                initial={{
+                  scale: 1,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                }}
+              >
+                <MotionText cursor="default" mt={5}>
+                  {data.desc}
+                </MotionText>
 
-              <Link href={data.link} passHref>
-                <Button mt={5} bg={cardButton}>
-                  Visit Website
-                </Button>
-              </Link>
+                <Link href={data.link} passHref>
+                  <MotionButton mt={5} colorScheme="blackAlpha">
+                    Visit Website
+                  </MotionButton>
+                </Link>
+              </motion.div>
             </Flex>
           );
         })}
