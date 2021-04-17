@@ -40,20 +40,6 @@ const Things = () => {
           "Revamped Website UI to a newer modern design for better customer retention with SEO boost",
         link: "https://royalbrothers.com",
       },
-      {
-        id: "092323",
-        name: "Simple Pomodoro",
-        desc:
-          "A simple free modern and useful pomodoro tracker no accounts no login no hassle.",
-        link: "https://localhost:3000",
-      },
-      {
-        id: "666212",
-        name: "Other Project",
-        desc:
-          "Elevate your Yogic practice by instilling transformation with a strong hold on your lifestyle.",
-        link: "https://localhost:3000",
-      },
     ],
   };
 
