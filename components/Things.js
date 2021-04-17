@@ -50,7 +50,7 @@ const Things = () => {
         id: "014343",
         name: "Theme Collection",
         desc:
-          "A collection of my HTML & CSS Design Templates built with various tech stack",
+          "A collection of my HTML & CSS Design Templates built with various tech stack (React,Next,SCSS etc)",
         link: "https://github.com/HarsimranBarki/theme-collection",
         image: templates,
         gradient: "rgba(255, 192, 203, 0.8),rgba(255, 192, 203, 1)",
@@ -66,9 +66,7 @@ const Things = () => {
       name="projects"
     >
       <Heading>Things I Did</Heading>
-      <Text mt={5}>
-        Here are a few design projects I've worked on recently.
-      </Text>
+      <Text mt={5}>Here are a few projects I've worked on recently.</Text>
       <Grid
         placeItems="center"
         height="100%"
