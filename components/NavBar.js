@@ -44,7 +44,7 @@ function NavBar() {
     <>
       <Flex
         px={{ base: 5, md: 5, lg: 40 }}
-        height="5rem"
+        height="4.5rem"
         margin="auto"
         position="fixed"
         width="100vw"
@@ -86,7 +86,7 @@ function NavBar() {
               to="who"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={-50}
               duration={500}
             >
               {" "}

@@ -67,21 +67,17 @@ const Things = () => {
     >
       <Heading>Things I Did</Heading>
       <Text mt={5}>Here are a few projects I've worked on recently.</Text>
-      <Grid
-        placeItems="center"
+      <Flex
         height="100%"
-        gridTemplateColumns={{
-          base: "repeat(auto-fill, minmax(18rem, 1fr))",
-          md: "repeat(auto-fill, minmax(25rem, 1fr))",
-          lg: "repeat(auto-fill, minmax(25rem, 1fr))",
-        }}
         gridGap={5}
         justifyContent="center"
         alignItems="center"
+        justifyContent="center"
         placeContent="center"
+        width="100%"
         margin="auto"
         textAlign="center"
-        margin={{ base: "0 0 ", md: "0 0", lg: "0 10rem" }}
+        flexWrap="wrap"
         mt={{ base: 10, md: 15, lg: 20 }}
       >
         {projects.website.map((data) => {
@@ -101,6 +97,7 @@ const Things = () => {
               padding={{ base: 5, md: 10, lg: 10 }}
               zIndex={10}
               border="1px solid"
+              maxW="md"
               borderColor={cardBorder}
               backgroundRepeat="no-repeat"
               backgroundSize="cover"
@@ -136,7 +133,7 @@ const Things = () => {
             </Flex>
           );
         })}
-      </Grid>
+      </Flex>
     </Box>
   );
 };
