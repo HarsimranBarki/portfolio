@@ -16,6 +16,7 @@ import TopTracks from "./TopTracks";
 import HeroMe from "public/Hero.png";
 import HeroMeDark from "public/HeroDark.png";
 import Image from "next/image";
+import Me from "public/me.png";
 import {
   Link,
   Element,
@@ -99,7 +100,7 @@ const HeroMobile = () => {
         </Box>
         <Flex
           alignItems="base"
-          justifyContent="center"
+          justifyContent="flex-end"
           width="90vw"
           marginTop={20}
           cursor="pointer"
@@ -114,7 +115,13 @@ const HeroMobile = () => {
           </motion.div>
         </Flex>
       </Grid>
-      <Box position="absolute" zIndex={1} bottom="0" left="0" opacity={0.2}>
+      <Box
+        position="absolute"
+        zIndex={1}
+        bottom="0"
+        left="50%"
+        transform="translate(-50%,0%)"
+      >
         <Link
           activeClass="active"
           to="who"
@@ -124,7 +131,7 @@ const HeroMobile = () => {
           duration={500}
         >
           {" "}
-          <Image src={image} layout="intrinsic" height="100%" width={50} />
+          <Image src={Me} layout="intrinsic" height={150} width={150} />
         </Link>
       </Box>
     </Box>
