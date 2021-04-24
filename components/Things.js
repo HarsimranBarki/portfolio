@@ -10,6 +10,7 @@ import athayog from "public/athayog.png";
 import athayogLogo from "public/athayogLogo.png";
 import templates from "public/templates.png";
 import { motion } from "framer-motion";
+import rapid from 'public/Rapid-Store.png'
 const Things = () => {
   const bg = useColorModeValue(
     "lightPallete.whiteYellow",
@@ -45,6 +46,15 @@ const Things = () => {
         link: "https://royalbrothers.com",
         image: rb,
         gradient: "rgba(254, 210, 80, 0.8),rgba(254, 210, 80, 1)",
+      },
+      {
+        id: "014322",
+        name: "Rapid Store",
+        desc:
+          "A Full-Stack E-Commerce Shoe Store Built Using Commerce JS, Stripe, Chakra UI  & NextJS ",
+        link: "https://rapid-store.vercel.app/",
+        image: rapid,
+        gradient: "rgba(0, 181, 204, 0.8),rgba(0, 181, 204, 1)",
       },
       {
         id: "014343",
