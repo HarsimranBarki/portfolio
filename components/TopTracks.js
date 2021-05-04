@@ -5,15 +5,15 @@ export default function TopTracks() {
   const { data, error } = useSWR("/api/now-playing", fetcher);
 
   if (error) {
-    return <>Spotify - Not Playing</>;
+    return <div>Spotify - Not Playing</div>;
   }
 
   if (!data) {
-    return <>Checking...</>;
+    return <div>Checking...</div>;
   }
-
+  console.log(data);
   if (data.isPlaying == false) {
-    return <>Spotify - Not Playing</>;
+    return <div>Spotify - Not Playing</div>;
   }
-  return <> Spotify - {data.title}</>;
+  return <div> Spotify - {data.title}</div>;
 }

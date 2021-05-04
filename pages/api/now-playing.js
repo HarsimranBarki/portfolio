@@ -1,7 +1,7 @@
-import { getNowPlaying } from "@/lib/spotify";
+import { getNowPlaying, getTopTracks } from "@/lib/spotify";
 
 export default async (_, res) => {
-  const response = await getNowPlaying();
+  const response = await getTopTracks();
 
   if (response.status === 204 || response.status > 400) {
     return res.status(200).json({ isPlaying: false });

@@ -16,7 +16,8 @@ import TopTracks from "./TopTracks";
 import HeroMe from "public/Hero.png";
 import HeroMeDark from "public/HeroDark.png";
 import Image from "next/image";
-import Me from "public/me.png";
+import Me from "public/me.svg";
+import MeDark from "public/meDark.svg";
 import {
   Link,
   Element,
@@ -37,7 +38,7 @@ const HeroMobile = () => {
     "lightPallete.red",
     "darkPallete.teal"
   );
-  const image = useColorModeValue(HeroMe, HeroMeDark);
+  const image = useColorModeValue(Me, MeDark);
   return (
     <Box position="relative">
       <Grid
@@ -118,7 +119,7 @@ const HeroMobile = () => {
       <Box
         position="absolute"
         zIndex={1}
-        bottom="0"
+        bottom="-2"
         left="50%"
         transform="translate(-50%,0%)"
       >
@@ -131,7 +132,7 @@ const HeroMobile = () => {
           duration={500}
         >
           {" "}
-          <Image src={Me} layout="intrinsic" height={150} width={150} />
+          <Image src={image} layout="intrinsic" height={150} width={150} />
         </Link>
       </Box>
     </Box>

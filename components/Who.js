@@ -13,8 +13,8 @@ import {
 } from "@chakra-ui/layout";
 import Image from "next/image";
 import React from "react";
-import WhoWhite from "public/Who.png";
-import WhoDark from "public/WhoDark.png";
+import WhoWhite from "public/Who.svg";
+import WhoDark from "public/WhoDark.svg";
 import { useInView } from "react-intersection-observer";
 
 import {

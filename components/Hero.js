@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/layout";
 import React from "react";
 import Image from "next/image";
-import HeroMe from "public/Hero.png";
-import HeroMeDark from "public/HeroDark.png";
+import HeroMe from "public/Hero.svg";
+import HeroMeDark from "public/HeroDark.svg";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { FaSpotify, FaCheckCircle } from "react-icons/fa";
 import TopTracks from "./TopTracks";
@@ -66,7 +66,7 @@ const Hero = () => {
           alignSelf="flex-end"
           justifySelf="flex-end"
           cursor="default"
-          mr={-5}
+          mr={0}
         >
           <SplitText
             initial={{ y: "100%", x: 0 }}
@@ -106,7 +106,7 @@ const Hero = () => {
           justifySelf="flex-start"
           display="inline-block"
           cursor="default"
-          ml={-5}
+          ml={0}
         >
           <SplitText
             initial={{ y: "100%", x: 0 }}
