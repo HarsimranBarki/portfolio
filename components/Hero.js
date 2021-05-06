@@ -89,7 +89,7 @@ const Hero = () => {
         <Text
           gridArea="leftText"
           textColor={color}
-          width="24rem"
+          width="25rem"
           alignSelf="flex-start"
           mt={5}
           justifySelf="flex-end"
@@ -130,7 +130,7 @@ const Hero = () => {
         <Box
           gridArea="rightText"
           textColor={colorTimeline}
-          width="22rem"
+          width="25rem"
           justifySelf="center"
           alignSelf="flex-start"
           mt={5}

@@ -5,6 +5,7 @@ import {
   Grid,
   Heading,
   Link,
+  LinkBox,
   List,
   ListIcon,
   ListItem,
@@ -119,6 +120,7 @@ const Who = () => {
                   <ListIcon as={SiReact} color={colorTimeline} />
                   React JS
                 </MotionListItem>
+
                 <MotionListItem
                   _hover={{
                     textDecoration: "underline",

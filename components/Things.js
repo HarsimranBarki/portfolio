@@ -10,7 +10,7 @@ import athayog from "public/athayog.png";
 import athayogLogo from "public/athayogLogo.png";
 import templates from "public/templates.png";
 import { motion } from "framer-motion";
-import rapid from 'public/Rapid-Store.png'
+import rapid from "public/Rapid-Store.png";
 const Things = () => {
   const bg = useColorModeValue(
     "lightPallete.whiteYellow",
@@ -36,7 +36,7 @@ const Things = () => {
           "Built the entire website architecture from Front-End to Back-End to help them increase their customer base & sell their courses",
         link: "https://athayogliving.com/",
         image: athayog,
-        gradient: "rgba(132, 152, 109, 0.8),rgba(173, 220, 188, 1)",
+        gradient: "rgba(132, 152, 109, 0.9),rgba(173, 220, 188, 1)",
       },
       {
         id: "011999",
@@ -45,7 +45,7 @@ const Things = () => {
           "Revamped Website UI to a newer modern design for better customer retention with SEO boost",
         link: "https://royalbrothers.com",
         image: rb,
-        gradient: "rgba(254, 210, 80, 0.8),rgba(254, 210, 80, 1)",
+        gradient: "rgba(254, 210, 80, 0.9),rgba(254, 210, 80, 1)",
       },
       {
         id: "014322",
@@ -54,7 +54,7 @@ const Things = () => {
           "A Full-Stack E-Commerce Shoe Store Built Using Commerce JS, Stripe, Chakra UI  & NextJS ",
         link: "https://rapid-store.vercel.app/",
         image: rapid,
-        gradient: "rgba(0, 181, 204, 0.8),rgba(0, 181, 204, 1)",
+        gradient: "rgba(0, 181, 204, 0.9),rgba(0, 181, 204, 1)",
       },
       {
         id: "014343",
@@ -63,7 +63,7 @@ const Things = () => {
           "A collection of my HTML & CSS Design Templates built with various tech stack (React,Next,SCSS etc)",
         link: "https://github.com/HarsimranBarki/theme-collection",
         image: templates,
-        gradient: "rgba(255, 192, 203, 0.8),rgba(255, 192, 203, 1)",
+        gradient: "rgba(255, 192, 203, 0.9),rgba(255, 192, 203, 1)",
       },
     ],
   };
