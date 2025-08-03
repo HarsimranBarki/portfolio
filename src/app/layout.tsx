@@ -51,10 +51,14 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript
+          defaultColorScheme="auto"
+          nonce="8IBTHwOdqNKAWeKl7plt8g=="
+        />
       </head>
       <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
         <MantineProvider
+          defaultColorScheme="auto"
           theme={{
             colors: {
               myColor,

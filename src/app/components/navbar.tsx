@@ -13,6 +13,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./theme-toggle";
 
 const links = [
   { label: "Work", href: "/work" },
@@ -27,48 +28,43 @@ const Navbar = () => {
 
   return (
     <>
-      <Flex
-        p="md"
-        justify="space-between"
-        align="center"
-        px="xl"
-        bg="white"
-        style={{ borderBottom: "1px solid #eee" }}
-      >
-        <Link href="/" style={{ textDecoration: "none", color: "#000" }}>
+      <Flex p="md" justify="space-between" align="center" px="xl">
+        <Link href="/" style={{ textDecoration: "none" }}>
           <Text fw="bold" size="lg">
             HSB
           </Text>
         </Link>
 
         {/* Desktop Links */}
-        <Group gap="md" visibleFrom="sm">
-          {links.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                style={{
-                  textDecoration: "none",
-                  color: isActive ? "#e64f57" : "#000",
-                  fontWeight: "bold",
-                  borderBottom: isActive
-                    ? "2px solid #e64f57"
-                    : "2px solid transparent",
-                  paddingBottom: rem(2),
-                }}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </Group>
-
-        {/* Mobile Burger */}
-        <Box hiddenFrom="sm">
-          <Burger opened={opened} onClick={toggle} aria-label="Toggle menu" />
-        </Box>
+        <Flex align="center" gap="md">
+          <Group gap="md" visibleFrom="sm">
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  style={{
+                    textDecoration: "none",
+                    color: isActive ? "#e64f57" : "inherit",
+                    fontWeight: "bold",
+                    borderBottom: isActive
+                      ? "2px solid #e64f57"
+                      : "2px solid transparent",
+                    paddingBottom: rem(2),
+                  }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </Group>
+          <ThemeToggle />
+          {/* Mobile Burger */}
+          <Box hiddenFrom="sm">
+            <Burger opened={opened} onClick={toggle} aria-label="Toggle menu" />
+          </Box>
+        </Flex>
       </Flex>
 
       {/* Drawer for Mobile */}
@@ -90,7 +86,7 @@ const Navbar = () => {
               onClick={close}
               style={{
                 textDecoration: "none",
-                color: pathname === link.href ? "#e64f57" : "#000",
+                color: pathname === link.href ? "#e64f57" : "inherit",
                 fontWeight: "bold",
               }}
             >
