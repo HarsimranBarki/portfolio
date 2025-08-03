@@ -1,28 +1,30 @@
-// pages/api/callback.ts
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const code = req.query.code as string;
+export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const code = url.searchParams.get('code');
 
-  const basic = Buffer.from(
-    `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
-  ).toString("base64");
+  if (!code) {
+    return new NextResponse('Missing code', { status: 400 });
+  }
 
-  const response = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
+  const response = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
     headers: {
-      Authorization: `Basic ${basic}`,
-      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: 'Basic ' + Buffer.from(
+        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+      ).toString('base64'),
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
-      grant_type: "authorization_code",
-      code: code,
-      redirect_uri: "http://localhost:3000/api/callback", // must match Spotify dashboard
+      grant_type: 'authorization_code',
+      code,
+      redirect_uri: 'http://127.0.0.1:3000/api/callback',
     }),
   });
 
   const data = await response.json();
 
-  console.log("REFRESH TOKEN:", data.refresh_token);
-  return res.status(200).json(data);
+  // ⛔️ Remove this after copying token
+  return NextResponse.json(data);
 }

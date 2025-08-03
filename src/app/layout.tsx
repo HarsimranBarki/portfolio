@@ -59,7 +59,7 @@ export default function RootLayout({
               myColor,
             },
             primaryColor: "red",
-            fontFamily: "var(--font-manrope), var(--font-space-grotesk)", // or --font-manrope / --font-poppins
+            fontFamily: "var(--font-manrope), var(--font-space-grotesk)",
           }}
         >
           <Navbar />

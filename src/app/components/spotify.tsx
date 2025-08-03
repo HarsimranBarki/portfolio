@@ -1,78 +1,66 @@
+// components/NowPlaying.tsx
 "use client";
-import { useEffect, useState } from "react";
-import { Box, Image, Text, Anchor, Skeleton, Group } from "@mantine/core";
 
-interface Song {
-  isPlaying: boolean;
-  title?: string;
-  artist?: string;
-  albumImageUrl?: string;
-  songUrl?: string;
-}
+import { useState, useEffect, JSX } from "react";
+import { CurrentPlayingData } from "@/types/spotify";
 
-const Spotify: React.FC = () => {
-  const [song, setSong] = useState<Song | null>(null);
-  const [loading, setLoading] = useState(true);
+export default function NowPlaying(): JSX.Element {
+  const [song, setSong] = useState<CurrentPlayingData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchNowPlaying = async () => {
+    const fetchCurrentlyPlaying = async (): Promise<void> => {
       try {
-        const res = await fetch("/api/spotify");
-
-        // Check for empty response (204 No Content or bad response)
-        if (!res.ok) {
-          throw new Error(`HTTP error ${res.status}`);
-        }
-
-        const text = await res.text();
-
-        if (!text) {
-          throw new Error("Empty response body");
-        }
-
-        const data = JSON.parse(text); // safe now
+        const response = await fetch("/api/spotify");
+        const data: CurrentPlayingData = await response.json();
         setSong(data);
-      } catch (err) {
-        console.error("Failed to fetch now playing:", err);
-        setSong(null); // fallback
+      } catch (error) {
+        console.error("Error fetching currently playing song:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchNowPlaying();
+    fetchCurrentlyPlaying();
+
+    // Poll for updates every 30 seconds
+    const interval = setInterval(fetchCurrentlyPlaying, 30000);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
-    return <Skeleton height={70} radius="md" />;
+    return <div className="text-gray-600">Loading current track...</div>;
   }
 
-  if (!song?.isPlaying) {
-    return (
-      <Text size="sm" c="dimmed">
-        Not listening to anything right now 🎧
-      </Text>
-    );
+  if (!song || !song.isPlaying) {
+    return <div className="text-gray-500">Not currently playing any music</div>;
   }
 
   return (
-    <Group align="center" gap="md" wrap="nowrap">
-      <Image
-        src={song.albumImageUrl}
-        alt="Album cover"
-        width={60}
-        radius="sm"
-      />
-      <Box>
-        <Anchor href={song.songUrl} target="_blank" underline="always" fw={600}>
-          {song.title}
-        </Anchor>
-        <Text size="sm" c="dimmed">
-          {song.artist}
-        </Text>
-      </Box>
-    </Group>
+    <div className="flex items-center space-x-4 p-4 border rounded-lg bg-white shadow-sm">
+      {song.albumImageUrl && (
+        <img
+          src={song.albumImageUrl}
+          alt={`${song.album} cover`}
+          className="w-16 h-16 rounded-md object-cover"
+        />
+      )}
+      <div className="flex-1">
+        <h3 className="font-semibold text-lg text-gray-900">{song.title}</h3>
+        <p className="text-gray-600">by {song.artist}</p>
+        <p className="text-gray-500 text-sm">{song.album}</p>
+        {song.songUrl && (
+          <a
+            href={song.songUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:underline text-sm"
+          >
+            Open in Spotify
+          </a>
+        )}
+      </div>
+    </div>
   );
-};
-
-export default Spotify;
+}
