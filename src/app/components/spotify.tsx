@@ -1,66 +1,93 @@
-// components/NowPlaying.tsx
 "use client";
 
-import { useState, useEffect, JSX } from "react";
+import { useEffect, useState } from "react";
+import {
+  Box,
+  Group,
+  Image,
+  Skeleton,
+  Stack,
+  Text,
+  Title,
+  Anchor,
+} from "@mantine/core";
+import { IconBrandSpotify } from "@tabler/icons-react";
 import { CurrentPlayingData } from "@/types/spotify";
 
-export default function NowPlaying(): JSX.Element {
+export default function NowPlaying() {
   const [song, setSong] = useState<CurrentPlayingData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchCurrentlyPlaying = async (): Promise<void> => {
+    const fetchCurrentlyPlaying = async () => {
       try {
-        const response = await fetch("/api/spotify");
-        const data: CurrentPlayingData = await response.json();
+        const res = await fetch("/api/spotify");
+        const data = await res.json();
         setSong(data);
       } catch (error) {
-        console.error("Error fetching currently playing song:", error);
+        console.error("Error fetching now playing:", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchCurrentlyPlaying();
-
-    // Poll for updates every 30 seconds
-    const interval = setInterval(fetchCurrentlyPlaying, 30000);
-
-    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
-    return <div className="text-gray-600">Loading current track...</div>;
+    return <Skeleton height={80} radius="md" />;
   }
 
   if (!song || !song.isPlaying) {
-    return <div className="text-gray-500">Not currently playing any music</div>;
+    return (
+      <Group mt="xl">
+        <IconBrandSpotify size={20} color="#1DB954" />
+        <Text size="sm" c="dimmed">
+          Not currently playing anything
+        </Text>
+      </Group>
+    );
   }
 
   return (
-    <div className="flex items-center space-x-4 p-4 border rounded-lg bg-white shadow-sm">
-      {song.albumImageUrl && (
-        <img
-          src={song.albumImageUrl}
-          alt={`${song.album} cover`}
-          className="w-16 h-16 rounded-md object-cover"
-        />
-      )}
-      <div className="flex-1">
-        <h3 className="font-semibold text-lg text-gray-900">{song.title}</h3>
-        <p className="text-gray-600">by {song.artist}</p>
-        <p className="text-gray-500 text-sm">{song.album}</p>
-        {song.songUrl && (
-          <a
-            href={song.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-600 hover:underline text-sm"
-          >
-            Open in Spotify
-          </a>
-        )}
-      </div>
-    </div>
+    <Stack mt="3rem" gap="xs">
+      <Text size="sm"> Last played on Spotify :)</Text>
+      <Group align="center" wrap="nowrap">
+        <Box w="120px">
+          <Image
+            src={song.albumImageUrl}
+            alt={song.album}
+            width={120}
+            height={120}
+            radius="md"
+            fit="contain"
+          />
+        </Box>
+
+        <Stack gap={4} justify="center">
+          <Title order={5} fw={600} c="dark">
+            {song.title}
+          </Title>
+          <Text size="sm" c="dimmed">
+            {song.artist}
+          </Text>
+          <Text size="xs" c="gray">
+            {song.album}
+          </Text>
+          {song.songUrl && (
+            <Anchor
+              href={song.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="xs"
+              c="green"
+              underline="hover"
+            >
+              Open in Spotify
+            </Anchor>
+          )}
+        </Stack>
+      </Group>
+    </Stack>
   );
 }
