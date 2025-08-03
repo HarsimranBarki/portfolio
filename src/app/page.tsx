@@ -40,11 +40,7 @@ export default function Home() {
 
       <Link href="/contact">
         <Button
-          variant="transparent"
-          td="underline"
-          size="lg"
-          p="0"
-          color="#e64f57"
+          variant="gradient"
           rightSection={<IconArrowRight size={14} />}
           mt={"24px"}
         >
