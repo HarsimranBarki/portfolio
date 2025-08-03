@@ -1,11 +1,11 @@
 "use client";
 
-import { Container, Timeline, Text } from "@mantine/core";
 import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
+import { Text, Timeline } from "@mantine/core";
 
 const WorkTimeline: React.FC = () => {
   return (
-    <Container size="md" py="xl">
+    <>
       <ResponsiveHeader text="MY WORK" />
 
       <Timeline active={0} bulletSize={24} lineWidth={2} mt={20}>
@@ -63,7 +63,7 @@ const WorkTimeline: React.FC = () => {
           </Text>
         </Timeline.Item>
       </Timeline>
-    </Container>
+    </>
   );
 };
 

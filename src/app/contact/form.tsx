@@ -4,7 +4,6 @@ import {
   Container,
   Notification,
   Stack,
-  Text,
   TextInput,
   Textarea,
 } from "@mantine/core";
@@ -13,6 +12,7 @@ import { IconCheck, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
 import { Metadata } from "next";
+import ResponsiveText from "@/app/components/common/ResponsiveText";
 
 export const metadata: Metadata = {
   title: "Contact Me | Harsimran Singh",
@@ -126,17 +126,11 @@ const Form: React.FC = () => {
           </Notification>
         )}
 
-        <Text mt="xl" size="md" hiddenFrom="sm">
+        <ResponsiveText>
           If you’d like to connect, feel free to reach out — I’m always happy to
           collaborate 🤝, brainstorm ideas 💡, or just chat about tech 🧑‍💻 and
           life 🌱.
-        </Text>
-
-        <Text mt="xl" size="lg" visibleFrom="sm">
-          If you’d like to connect, feel free to reach out — I’m always happy to
-          collaborate 🤝, brainstorm ideas 💡, or just chat about tech 🧑‍💻 and
-          life 🌱.
-        </Text>
+        </ResponsiveText>
       </Stack>
     </Container>
   );

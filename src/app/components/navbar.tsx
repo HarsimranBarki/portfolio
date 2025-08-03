@@ -13,7 +13,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "@/app/components/theme-toggle";
 
 const links = [
   { label: "Work", href: "/work" },

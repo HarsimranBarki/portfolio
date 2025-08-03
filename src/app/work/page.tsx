@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <Container size="md" py="xl">
-      <WorkTimeline />;
+      <WorkTimeline />
     </Container>
   );
 }

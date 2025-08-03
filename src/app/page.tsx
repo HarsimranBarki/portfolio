@@ -1,15 +1,16 @@
-import { Button, Container, Text } from "@mantine/core";
+import { Button, Container } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
-import ResponsiveHeader from "./components/common/ResponsiveHeader";
-import Spotify from "./components/spotify";
+import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
+import ResponsiveText from "@/app/components/common/ResponsiveText";
+import Spotify from "@/app/components/spotify";
 
 export default function Home() {
   return (
     <Container size={"xl"} py="xl">
       <ResponsiveHeader text="HARSIMRAN SINGH" />
 
-      <Text mt={20}>
+      <ResponsiveText mt={20}>
         Hi!, I am a software engineer based in <strong>Bangalore</strong>, with
         a passion for building innovative and meaningful digital experiences. I
         specialize in full-stack development — crafting seamless user interfaces
@@ -18,9 +19,9 @@ export default function Home() {
         into someone who cares deeply about emotional growth, responsibility,
         and creating things that genuinely help people. I believe that great
         software is not just functional, but human at its core.
-      </Text>
+      </ResponsiveText>
 
-      <Text mt="lg">
+      <ResponsiveText mt="lg">
         I have hands-on experience with modern web technologies like{" "}
         <strong>Next.js</strong>, <strong>React</strong>, and{" "}
         <strong>Firebase</strong>, along with core frontend skills in{" "}
@@ -34,7 +35,7 @@ export default function Home() {
         <strong>Formik</strong>, <strong>CI/CD pipelines</strong> (Argo, Google
         Cloud). I’m comfortable building full-stack apps with clean architecture
         and deployment-ready environments.
-      </Text>
+      </ResponsiveText>
 
       <Link href="/contact">
         <Button
