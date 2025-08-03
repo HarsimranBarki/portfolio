@@ -11,17 +11,17 @@ import Navbar from "./components/navbar";
 import { NavigationProgress } from "@mantine/nprogress";
 import "@mantine/core/styles.css";
 import "@mantine/nprogress/styles.css";
-import { Manrope, Space_Grotesk } from "next/font/google";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
+import { Space_Grotesk, Inter } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -56,7 +56,7 @@ export default function RootLayout({
           nonce="8IBTHwOdqNKAWeKl7plt8g=="
         />
       </head>
-      <body className={`${manrope.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${inter.variable}`}>
         <MantineProvider
           defaultColorScheme="auto"
           theme={{
@@ -64,7 +64,7 @@ export default function RootLayout({
               myColor,
             },
             primaryColor: "gray",
-            fontFamily: "var(--font-manrope), var(--font-space-grotesk)",
+            fontFamily: "var(--font-inter), var(--font-space-grotesk)",
           }}
         >
           <NavigationProgress />

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Form from "@/app/contact/form";
+import { Container } from "@mantine/core";
 
 export const metadata: Metadata = {
   title: "Contact Me | Harsimran Singh",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <Form />;
+  return (
+    <Container size="md" py="xl">
+      <Form />
+    </Container>
+  );
 }

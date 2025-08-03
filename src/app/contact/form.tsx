@@ -126,9 +126,16 @@ const Form: React.FC = () => {
           </Notification>
         )}
 
-        <Text mt="xl" size="lg">
+        <Text mt="xl" size="md" hiddenFrom="sm">
           If you’d like to connect, feel free to reach out — I’m always happy to
-          collaborate or chat.
+          collaborate 🤝, brainstorm ideas 💡, or just chat about tech 🧑‍💻 and
+          life 🌱.
+        </Text>
+
+        <Text mt="xl" size="lg" visibleFrom="sm">
+          If you’d like to connect, feel free to reach out — I’m always happy to
+          collaborate 🤝, brainstorm ideas 💡, or just chat about tech 🧑‍💻 and
+          life 🌱.
         </Text>
       </Stack>
     </Container>

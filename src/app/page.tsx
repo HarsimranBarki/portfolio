@@ -6,7 +6,7 @@ import Spotify from "./components/spotify";
 
 export default function Home() {
   return (
-    <Container size={"xl"} mt="3rem">
+    <Container size={"xl"} py="xl">
       <ResponsiveHeader text="HARSIMRAN SINGH" />
 
       <Text mt={20}>

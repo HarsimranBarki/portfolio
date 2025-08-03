@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import WorkTimeline from "@/app/work/work-timeline";
+import { Container } from "@mantine/core";
 
 export const metadata: Metadata = {
   title: "Work | Harsimran Singh",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <WorkTimeline />;
+  return (
+    <Container size="md" py="xl">
+      <WorkTimeline />;
+    </Container>
+  );
 }
