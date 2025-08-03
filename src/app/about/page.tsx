@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Text, Title } from "@mantine/core";
+import { Container, Stack, Text, Title } from "@mantine/core";
 
 const About: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const About: React.FC = () => {
         ABOUT ME
       </Title>
       <Stack gap={20}>
-        <Title order={1}>Hi, I'm Harsimran</Title>
+        <Title order={1}>Hi, I&apos;m Harsimran</Title>
         <Text size="lg" mt="md">
           I’m a software engineer based in Bangalore with a passion for crafting
           meaningful digital experiences. While my Home page tells you what I do
@@ -37,7 +37,7 @@ const About: React.FC = () => {
           Beyond Work
         </Title>
         <Text>
-          When I’m not coding, I’m learning Kannada, reflecting on life, or
+          When I’m not coding, I’m learning new Tech, reflecting on life, or
           occasionally writing my thoughts. I believe in growth — both personal
           and professional.
         </Text>

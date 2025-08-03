@@ -35,12 +35,12 @@ export default function NowPlaying() {
   }, []);
 
   if (loading) {
-    return <Skeleton height={80} radius="md" />;
+    return <Skeleton mt="3rem" height={100} radius="md" />;
   }
 
   if (!song || !song.isPlaying) {
     return (
-      <Group mt="xl">
+      <Group mt="3rem">
         <IconBrandSpotify size={20} color="#1DB954" />
         <Text size="sm" c="dimmed">
           Not currently playing anything

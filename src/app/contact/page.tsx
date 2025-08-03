@@ -1,18 +1,23 @@
 "use client";
 import {
-  Box,
   Button,
   Container,
+  Notification,
   Stack,
   Text,
   TextInput,
   Textarea,
   Title,
-  Notification,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useState } from "react";
 import { IconCheck, IconX } from "@tabler/icons-react";
+import { useState } from "react";
+
+type ContactFormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const About: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -33,34 +38,31 @@ const About: React.FC = () => {
         value.trim().length < 10 ? "Message is too short" : null,
     },
   });
+  const handleSubmit = async (values: ContactFormValues): Promise<void> => {
+    setLoading(true);
 
-  const handleSubmit = async (values: typeof form.values) => {
     try {
-      setLoading(true);
-      await fetch("https://getform.io/f/boloxrqa", {
+      const response = await fetch("https://getform.io/f/boloxrqa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`An error occurred: ${response.statusText}`);
-          }
-          setStatus("success");
-        })
-        .catch((error) => {
-          setStatus("error");
-        });
+      });
+
+      if (!response.ok) {
+        throw new Error(`An error occurred: ${response.statusText}`);
+      }
+
+      setStatus("success");
+      form.reset();
     } catch (error) {
+      console.error("Submission error:", error);
       setStatus("error");
     } finally {
-      form.reset();
       setLoading(false);
+      setTimeout(() => setStatus("idle"), 4000);
     }
-
-    setTimeout(() => setStatus("idle"), 4000);
   };
 
   return (

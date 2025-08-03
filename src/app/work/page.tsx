@@ -16,8 +16,8 @@ export default function ProjectsPage() {
           </Text>
           <Text size="sm" mt={4}>
             Contributing to internal tooling and performance-driven interfaces
-            that support the company's broader e-commerce solutions. Focused on
-            building robust and scalable frontend components.
+            that support the company&apos;s broader e-commerce solutions.
+            Focused on building robust and scalable frontend components.
           </Text>
         </Timeline.Item>
 
