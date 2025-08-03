@@ -43,9 +43,7 @@ export default async function NowPlayingServer() {
       <Stack gap="xs">
         <Group gap={8}>
           <IconBrandSpotify size={18} color="#1DB954" />
-          <Text size="sm" c="dimmed">
-            Recently vibing to...
-          </Text>
+          <Text size="sm">Recently vibing to...</Text>
         </Group>
 
         <Group align="center" wrap="nowrap" gap="md">

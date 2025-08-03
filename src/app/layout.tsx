@@ -63,7 +63,7 @@ export default function RootLayout({
             colors: {
               myColor,
             },
-            primaryColor: "red",
+            primaryColor: "gray",
             fontFamily: "var(--font-manrope), var(--font-space-grotesk)",
           }}
         >

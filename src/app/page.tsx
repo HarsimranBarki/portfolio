@@ -38,9 +38,10 @@ export default function Home() {
 
       <Link href="/contact">
         <Button
-          variant="gradient"
+          variant="light"
           rightSection={<IconArrowRight size={14} />}
-          mt={"24px"}
+          size="md"
+          mt={"32px"}
         >
           Get in Touch
         </Button>
