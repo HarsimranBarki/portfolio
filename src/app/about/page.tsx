@@ -1,12 +1,11 @@
 import { Container, Stack, Text, Title } from "@mantine/core";
+import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
 
 const About: React.FC = () => {
   return (
     <Container py="xl">
-      <Title size={"7rem"} fw="900" ff="var(--font-space-grotesk">
-        ABOUT ME
-      </Title>
-      <Stack gap={20}>
+      <ResponsiveHeader text="ABOUT ME" />
+      <Stack gap={20} mt={20}>
         <Title order={1}>Hi, I&apos;m Harsimran</Title>
         <Text size="lg" mt="md">
           I’m a software engineer based in Bangalore with a passion for crafting

@@ -8,7 +8,9 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import Navbar from "./components/navbar";
-
+import { NavigationProgress } from "@mantine/nprogress";
+import "@mantine/core/styles.css";
+import "@mantine/nprogress/styles.css";
 import { Manrope, Space_Grotesk } from "next/font/google";
 
 const manrope = Manrope({
@@ -61,6 +63,7 @@ export default function RootLayout({
             fontFamily: "var(--font-manrope), var(--font-space-grotesk)",
           }}
         >
+          <NavigationProgress />
           <Navbar />
           {children}
         </MantineProvider>

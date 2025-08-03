@@ -7,11 +7,11 @@ import {
   Text,
   TextInput,
   Textarea,
-  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import { useState } from "react";
+import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
 
 type ContactFormValues = {
   name: string;
@@ -68,9 +68,7 @@ const About: React.FC = () => {
   return (
     <Container py="xl">
       <Stack gap={20}>
-        <Title size={"7rem"} fw="900" ff="var(--font-space-grotesk">
-          CONTACT ME
-        </Title>
+        <ResponsiveHeader text="CONTACT ME" />
 
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <Stack gap="md">

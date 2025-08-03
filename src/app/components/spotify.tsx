@@ -1,93 +1,89 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { LastPlayedTrack } from "@/types/spotify";
+import { IconBrandSpotify } from "@tabler/icons-react";
 import {
   Box,
   Group,
   Image,
-  Skeleton,
   Stack,
   Text,
   Title,
   Anchor,
+  Paper,
 } from "@mantine/core";
-import { IconBrandSpotify } from "@tabler/icons-react";
-import { CurrentPlayingData } from "@/types/spotify";
 
-export default function NowPlaying() {
-  const [song, setSong] = useState<CurrentPlayingData | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+async function getLastPlayed(): Promise<LastPlayedTrack | null> {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/spotify`, {
+      cache: "no-cache",
+    });
 
-  useEffect(() => {
-    const fetchCurrentlyPlaying = async () => {
-      try {
-        const res = await fetch("/api/spotify");
-        const data = await res.json();
-        setSong(data);
-      } catch (error) {
-        console.error("Error fetching now playing:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCurrentlyPlaying();
-  }, []);
-
-  if (loading) {
-    return <Skeleton mt="3rem" height={100} radius="md" />;
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
   }
+}
 
-  if (!song || !song.isPlaying) {
+export default async function NowPlayingServer() {
+  const song = await getLastPlayed();
+
+  if (!song) {
     return (
-      <Group mt="3rem">
+      <Group mt="xl" gap="xs">
         <IconBrandSpotify size={20} color="#1DB954" />
         <Text size="sm" c="dimmed">
-          Not currently playing anything
+          Hmm... looks like Spotify is being shy. No track found!
         </Text>
       </Group>
     );
   }
 
   return (
-    <Stack mt="3rem" gap="xs">
-      <Text size="sm"> Last played on Spotify :)</Text>
-      <Group align="center" wrap="nowrap">
-        <Box w="120px">
-          <Image
-            src={song.albumImageUrl}
-            alt={song.album}
-            width={120}
-            height={120}
-            radius="md"
-            fit="contain"
-          />
-        </Box>
-
-        <Stack gap={4} justify="center">
-          <Title order={5} fw={600} c="dark">
-            {song.title}
-          </Title>
+    <Paper shadow="xs" radius="md" p="md" mt="xl" withBorder>
+      <Stack gap="xs">
+        <Group gap={8}>
+          <IconBrandSpotify size={18} color="#1DB954" />
           <Text size="sm" c="dimmed">
-            {song.artist}
+            Recently vibing to...
           </Text>
-          <Text size="xs" c="gray">
-            {song.album}
-          </Text>
-          {song.songUrl && (
-            <Anchor
-              href={song.songUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="xs"
-              c="green"
-              underline="hover"
-            >
-              Open in Spotify
-            </Anchor>
-          )}
-        </Stack>
-      </Group>
-    </Stack>
+        </Group>
+
+        <Group align="center" wrap="nowrap" gap="md">
+          <Box w={100}>
+            <Image
+              src={song.albumImageUrl}
+              alt={`Cover art of ${song.album}`}
+              width={100}
+              height={100}
+              radius="md"
+              fit="cover"
+            />
+          </Box>
+
+          <Stack gap={2} justify="center">
+            <Title order={5}>{song.title}</Title>
+            <Text size="sm" c="dimmed">
+              {song.artist}
+            </Text>
+            <Text size="xs" c="gray">
+              {song.album}
+            </Text>
+
+            {song.songUrl && (
+              <Anchor
+                href={song.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="xs"
+                c="green"
+                underline="hover"
+              >
+                Check on spotify
+              </Anchor>
+            )}
+          </Stack>
+        </Group>
+      </Stack>
+    </Paper>
   );
 }

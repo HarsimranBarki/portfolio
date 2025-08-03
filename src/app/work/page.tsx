@@ -1,15 +1,14 @@
 "use client";
 
-import { Container, Title, Timeline, Text } from "@mantine/core";
+import { Container, Timeline, Text } from "@mantine/core";
+import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
 
 export default function ProjectsPage() {
   return (
     <Container size="md" py="xl">
-      <Title size={"7rem"} fw="900" ff="var(--font-space-grotesk">
-        MY WORK
-      </Title>
+      <ResponsiveHeader text="MY WORK" />
 
-      <Timeline active={0} bulletSize={24} lineWidth={2}>
+      <Timeline active={0} bulletSize={24} lineWidth={2} mt={20}>
         <Timeline.Item title="Software Engineer – Searchspring">
           <Text c="dimmed" size="sm">
             April 2024 – Present

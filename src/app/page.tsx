@@ -1,24 +1,22 @@
-import { Button, Container, Text, Title } from "@mantine/core";
+import { Button, Container, Text } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import ResponsiveHeader from "./components/common/ResponsiveHeader";
 import Spotify from "./components/spotify";
 
 export default function Home() {
   return (
     <Container size={"xl"} mt="3rem">
-      <Title size={"7rem"} fw="900" ff="var(--font-space-grotesk)">
-        SOFTWARE ENGINEER
-      </Title>
+      <ResponsiveHeader text="HARSIMRAN SINGH" />
 
-      <Text>
-        Hi, my name is <strong>Harsimran Singh</strong>. I am a software
-        engineer based in <strong>Bangalore</strong>, with a passion for
-        building innovative and meaningful digital experiences. I specialize in
-        full-stack development — crafting seamless user interfaces and powerful
-        backend systems. Beyond code, I bring a strong sense of empathy and
-        self-awareness to my work and life. My journey has shaped me into
-        someone who cares deeply about emotional growth, responsibility, and
-        creating things that genuinely help people. I believe that great
+      <Text mt={20}>
+        Hi!, I am a software engineer based in <strong>Bangalore</strong>, with
+        a passion for building innovative and meaningful digital experiences. I
+        specialize in full-stack development — crafting seamless user interfaces
+        and powerful backend systems. Beyond code, I bring a strong sense of
+        empathy and self-awareness to my work and life. My journey has shaped me
+        into someone who cares deeply about emotional growth, responsibility,
+        and creating things that genuinely help people. I believe that great
         software is not just functional, but human at its core.
       </Text>
 

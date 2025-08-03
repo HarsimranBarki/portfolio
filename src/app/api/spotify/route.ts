@@ -1,4 +1,4 @@
-import {  NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const {
   SPOTIFY_CLIENT_ID: client_id,
@@ -8,7 +8,7 @@ const {
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
-const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing';
+const RECENTLY_PLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played?limit=1';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
 interface SpotifyTokenResponse {
@@ -17,35 +17,14 @@ interface SpotifyTokenResponse {
   expires_in: number;
 }
 
-interface SpotifyCurrentlyPlayingResponse {
-  is_playing: boolean;
-  currently_playing_type: string;
-  item: {
-    name: string;
-    album: {
-      name: string;
-      images: Array<{ url: string }>;
-      artists: Array<{ name: string }>;
-    };
-    external_urls: {
-      spotify: string;
-    };
-    duration_ms: number;
-  };
-  progress_ms: number;
+interface LastPlayedData {
+  title: string;
+  album: string;
+  artist: string;
+  albumImageUrl: string;
+  songUrl: string;
+  playedAt: string;
 }
-
-interface CurrentPlayingData {
-  isPlaying: boolean;
-  title?: string;
-  album?: string;
-  artist?: string;
-  albumImageUrl?: string;
-  songUrl?: string;
-  progress?: number;
-  duration?: number;
-}
-
 
 const getAccessToken = async (): Promise<SpotifyTokenResponse> => {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -61,20 +40,13 @@ const getAccessToken = async (): Promise<SpotifyTokenResponse> => {
   });
 
   const text = await response.text();
-  console.log('Response from token endpoint:', text);
-
-  if (!response.ok) {
-    throw new Error(`Failed to get access token: ${response.status}`);
-  }
-
+  if (!response.ok) throw new Error(`Failed to get access token: ${response.status} → ${text}`);
   return JSON.parse(text);
 };
 
-
-const getNowPlaying = async () => {
+const getLastPlayedTrack = async () => {
   const { access_token } = await getAccessToken();
-  console.log('Access Token:', access_token);
-  return fetch(NOW_PLAYING_ENDPOINT, {
+  return fetch(RECENTLY_PLAYED_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -83,34 +55,36 @@ const getNowPlaying = async () => {
 
 export async function GET() {
   try {
-    const response = await getNowPlaying();
+    const response = await getLastPlayedTrack();
 
-    if (response.status === 204 || response.status > 400) {
-      console.log('response status:', response.status);
-      console.log('response body:', await response.text());
-      return NextResponse.json({ isPlaying: false });
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error('Spotify API error:', errText);
+      return NextResponse.json({ error: 'Failed to fetch last played track' }, { status: 400 });
     }
 
-    const song: SpotifyCurrentlyPlayingResponse = await response.json();
+    const data = await response.json();
+    const item = data.items?.[0];
 
-    if (song.currently_playing_type !== 'track') {
-      return NextResponse.json({ isPlaying: false });
+    if (!item || !item.track) {
+      return NextResponse.json({ error: 'No recently played track found' }, { status: 404 });
     }
 
-    const data: CurrentPlayingData = {
-      isPlaying: song.is_playing,
-      title: song.item.name,
-      album: song.item.album.name,
-      artist: song.item.album.artists.map((artist) => artist.name).join(', '),
-      albumImageUrl: song.item.album.images[0]?.url,
-      songUrl: song.item.external_urls.spotify,
-      progress: song.progress_ms,
-      duration: song.item.duration_ms,
+    const track = item.track;
+
+    type Artist = { name: string };
+    const result: LastPlayedData = {
+      title: track.name,
+      album: track.album.name,
+      artist: track.artists.map((a: Artist) => a.name).join(', '),
+      albumImageUrl: track.album.images?.[0]?.url || '',
+      songUrl: track.external_urls.spotify,
+      playedAt: item.played_at,
     };
 
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error('Error fetching currently playing song:', error);
-    return NextResponse.json({ isPlaying: false }, { status: 500 });
+    return NextResponse.json(result);
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

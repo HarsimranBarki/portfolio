@@ -1,11 +1,10 @@
-import { Container, Title } from "@mantine/core";
+import { Container } from "@mantine/core";
+import ResponsiveHeader from "@/app/components/common/ResponsiveHeader";
 
 export default function ProjectsPage() {
   return (
     <Container size="md" py="xl">
-      <Title size={"7rem"} fw="900" ff="var(--font-space-grotesk">
-        BLOGS
-      </Title>
+      <ResponsiveHeader text="BLOGS" />
     </Container>
   );
 }
