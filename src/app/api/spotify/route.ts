@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import {  NextResponse } from 'next/server';
 
 const {
   SPOTIFY_CLIENT_ID: client_id,
@@ -10,7 +10,6 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
-const redirect_uri = 'http://127.0.0.1:3000/api/callback';
 
 interface SpotifyTokenResponse {
   access_token: string;
@@ -82,7 +81,7 @@ const getNowPlaying = async () => {
   });
 };
 
-export async function GET(request: NextRequest): Promise<NextResponse<CurrentPlayingData>> {
+export async function GET() {
   try {
     const response = await getNowPlaying();
 

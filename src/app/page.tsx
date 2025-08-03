@@ -1,4 +1,4 @@
-import { Box, Button, Container, Flex, Text, Title } from "@mantine/core";
+import { Button, Container, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import Spotify from "./components/spotify";
