@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
 import "@/app/globals.css";
-import "@mantine/core/styles.css";
 import {
   ColorSchemeScript,
   MantineColorsTuple,
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
-import Navbar from "./components/navbar";
-import { NavigationProgress } from "@mantine/nprogress";
 import "@mantine/core/styles.css";
-import "@mantine/nprogress/styles.css";
-import { Space_Grotesk, Inter } from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import Navbar from "./components/navbar";
+import ProgressBarProvider from "./provider/progress";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -63,13 +61,14 @@ export default function RootLayout({
             colors: {
               myColor,
             },
-            primaryColor: "gray",
+            primaryColor: "teal",
             fontFamily: "var(--font-inter), var(--font-space-grotesk)",
           }}
         >
-          <NavigationProgress />
-          <Navbar />
-          {children}
+          <ProgressBarProvider>
+            <Navbar />
+            {children}
+          </ProgressBarProvider>
         </MantineProvider>
       </body>
     </html>

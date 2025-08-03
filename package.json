@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bprogress/next": "^3.2.12",
     "@mantine/carousel": "^8.2.2",
     "@mantine/core": "^8.2.2",
     "@mantine/dates": "^8.2.2",
@@ -17,7 +18,6 @@
     "@mantine/hooks": "^8.2.2",
     "@mantine/modals": "^8.2.2",
     "@mantine/notifications": "^8.2.2",
-    "@mantine/nprogress": "^8.2.2",
     "@mantine/spotlight": "^8.2.2",
     "@tabler/icons-react": "^3.34.1",
     "dayjs": "^1.11.13",

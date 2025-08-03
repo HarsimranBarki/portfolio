@@ -11,30 +11,38 @@ export default function Home() {
       <ResponsiveHeader text="HARSIMRAN SINGH" />
 
       <ResponsiveText mt={20}>
-        Hi!, I am a software engineer based in <strong>Bangalore</strong>, with
-        a passion for building innovative and meaningful digital experiences. I
-        specialize in full-stack development — crafting seamless user interfaces
-        and powerful backend systems. Beyond code, I bring a strong sense of
-        empathy and self-awareness to my work and life. My journey has shaped me
-        into someone who cares deeply about emotional growth, responsibility,
-        and creating things that genuinely help people. I believe that great
-        software is not just functional, but human at its core.
+        Hi! I’m a software engineer based in <strong>Bangalore</strong>,
+        passionate about crafting meaningful digital experiences. I specialize
+        in full-stack development — building seamless user interfaces and robust
+        backend systems.
+      </ResponsiveText>
+
+      <ResponsiveText mt="md">
+        Beyond code, I bring empathy, self-awareness, and a thoughtful approach
+        to everything I create. My journey has taught me the value of emotional
+        growth, personal responsibility, and designing software that truly helps
+        people. I believe great software isn&apos;t just functional — it&apos;s
+        human at its core.
       </ResponsiveText>
 
       <ResponsiveText mt="lg">
         I have hands-on experience with modern web technologies like{" "}
         <strong>Next.js</strong>, <strong>React</strong>, and{" "}
-        <strong>Firebase</strong>, along with core frontend skills in{" "}
+        <strong>Firebase</strong>, along with frontend skills in{" "}
         <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>
         , <strong>TypeScript</strong>, <strong>Redux</strong>,{" "}
         <strong>Tailwind</strong>, <strong>MUI</strong>,{" "}
-        <strong>Mantine</strong>, and <strong>Astro.js</strong>. On the backend
-        and infrastructure side, I’ve worked with <strong>GoLang</strong>,{" "}
-        <strong>PHP</strong>, <strong>PostgreSQL</strong>,{" "}
-        <strong>MySQL</strong>, and tools like <strong>Prismic CMS</strong>,{" "}
-        <strong>Formik</strong>, <strong>CI/CD pipelines</strong> (Argo, Google
-        Cloud). I’m comfortable building full-stack apps with clean architecture
-        and deployment-ready environments.
+        <strong>Mantine</strong>, and <strong>Astro.js</strong>.
+      </ResponsiveText>
+
+      <ResponsiveText mt="md">
+        On the backend and infrastructure side, I’ve worked with{" "}
+        <strong>GoLang</strong>, <strong>PHP</strong>,{" "}
+        <strong>PostgreSQL</strong>, <strong>MySQL</strong>, and tools like{" "}
+        <strong>Prismic CMS</strong>, <strong>Formik</strong>, and{" "}
+        <strong>CI/CD pipelines</strong> (Argo, Google Cloud). I’m confident
+        building full-stack apps with clean architecture and deployment-ready
+        environments.
       </ResponsiveText>
 
       <Link href="/contact">

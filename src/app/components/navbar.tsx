@@ -46,10 +46,10 @@ const Navbar = () => {
                   href={link.href}
                   style={{
                     textDecoration: "none",
-                    color: isActive ? "#e64f57" : "inherit",
+                    color: isActive ? "e64f57" : "inherit",
                     fontWeight: "bold",
                     borderBottom: isActive
-                      ? "2px solid #e64f57"
+                      ? "2px solid e64f57"
                       : "2px solid transparent",
                     paddingBottom: rem(2),
                   }}
