@@ -1,20 +1,11 @@
-import { LastPlayedTrack } from "@/types/spotify";
-import { IconBrandSpotify } from "@tabler/icons-react";
-import {
-  Box,
-  Group,
-  Image,
-  Stack,
-  Text,
-  Title,
-  Anchor,
-  Paper,
-} from "@mantine/core";
+import { LastPlayedTrack } from '@/types/spotify';
+import { IconBrandSpotify } from '@tabler/icons-react';
+import { Box, Group, Image, Stack, Text, Title, Anchor, Paper } from '@mantine/core';
 
 async function getLastPlayed(): Promise<LastPlayedTrack | null> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/spotify`, {
-      cache: "no-cache",
+      cache: 'no-cache',
     });
 
     if (!res.ok) return null;

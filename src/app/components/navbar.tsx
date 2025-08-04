@@ -1,25 +1,15 @@
-"use client";
-
-import {
-  Box,
-  Flex,
-  Burger,
-  Drawer,
-  Group,
-  Text,
-  Stack,
-  rem,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import ThemeToggle from "@/app/components/theme-toggle";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useDisclosure } from '@mantine/hooks';
+import ThemeToggle from '@/app/components/theme-toggle';
+import { Box, Flex, Burger, Drawer, Group, Stack, Anchor } from '@mantine/core';
 
 const links = [
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: 'Work', href: '/work' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -29,10 +19,8 @@ const Navbar = () => {
   return (
     <>
       <Flex p="md" justify="space-between" align="center" px="xl">
-        <Link href="/" style={{ textDecoration: "none" }}>
-          <Text fw="bold" size="lg">
-            HSB
-          </Text>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          HSB
         </Link>
 
         {/* Desktop Links */}
@@ -40,22 +28,22 @@ const Navbar = () => {
           <Group gap="md" visibleFrom="sm">
             {links.map((link) => {
               const isActive = pathname === link.href;
+              console.log(pathname);
               return (
-                <Link
+                <Anchor
                   key={link.label}
+                  component={Link}
                   href={link.href}
                   style={{
-                    textDecoration: "none",
-                    color: isActive ? "#e64f57" : "inherit",
-                    fontWeight: "bold",
-                    borderBottom: isActive
-                      ? "2px solid #e64f57"
-                      : "2px solid transparent",
-                    paddingBottom: rem(2),
+                    position: 'relative',
+                    color: isActive ? '#e64f57' : 'inherit',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    paddingBottom: 4,
                   }}
                 >
                   {link.label}
-                </Link>
+                </Anchor>
               );
             })}
           </Group>
@@ -85,9 +73,9 @@ const Navbar = () => {
               href={link.href}
               onClick={close}
               style={{
-                textDecoration: "none",
-                color: pathname === link.href ? "#e64f57" : "inherit",
-                fontWeight: "bold",
+                textDecoration: 'none',
+                color: pathname === link.href ? '#e64f57' : 'inherit',
+                fontWeight: 'bold',
               }}
             >
               {link.label}
